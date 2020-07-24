@@ -1,38 +1,106 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+html {
+  background-color: black;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+a {
+  color: white;
+}
+::placeholder {
+  color: white
+}
+.nav-wrapper {
+  background-color: #E50914;
+  
+}
+#register-msg {
+  font-size: 3rem;
+  padding: 3rem 1rem 1rem;
+}
+.register-btn {
+  padding: 10px 30px 45px;
+  font-size: 1.0rem;
+  transition: 0.3s;
+}
+.register-btn:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+#button {
+  background-color: #E50914;
+  margin: 5px;
+  animation: fadeInAnimation ease 2s;
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards;
+}
+#button:hover {
+  background-color: #bd0009;
+}
+#data {
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards;
+}
+#card-info {
+  display: inline;
+}
+@keyframes fadeInAnimation { 
+  0% { 
+      opacity: 0; 
+  } 
+  100% { 
+      opacity: 1; 
+   } 
+}
+.card {
+  cursor: pointer;
+  transition: 0.1s;
+}
+.card:hover {
+  transform: scale(1.1);
+  transition: 0.1s;
+}
+ /* label focus color */
+ input:-webkit-autofill,
+ input:-webkit-autofill:hover, 
+ input:-webkit-autofill:focus, 
+ input:-webkit-autofill:active  {
+     -webkit-box-shadow: 0 0 0 30px black inset !important;
+     -webkit-text-fill-color: white !important;
+ }
+ input:focus {
+  border-bottom: 1px solid red !important;
+  box-shadow: 0 1px 0 0 red !important;
+  background-color: black;
+}
+ .input-field [type=text] {
+  background-color: black;
+  color:white !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* React transition group classes */
+.wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+}  
+/* simple - enter transition 300ms, exit 150ms */
+.fade-appear,
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
 }
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 800ms linear ;
+}
+.fade-exit {
+    opacity: 1;
+}
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 800ms linear;
+}
+
+
+
