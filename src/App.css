@@ -31,7 +31,7 @@ img {
   cursor: pointer;
   transition: 0.2s;
   box-sizing: content-box;
-  height: 23em;
+  height: 24em;
 }
 
 .card:hover {
@@ -69,12 +69,10 @@ img {
 .view-details-btn {
   position: static;
   text-align: center;
-  
-  margin: 45px auto;
+  margin: 45px 2em;
   background-color: #bd0009;
   font-weight: bold;
   font-size: 1.5em;
-  /*margin-top: 2rem;*/
 }
 .btn-red:hover {
   background-color: #9b0008;
