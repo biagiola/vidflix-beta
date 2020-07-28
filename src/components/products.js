@@ -36,10 +36,9 @@ class Products extends Component {
                             <div className="card">
                                 <img src={`http://localhost:5000/uploads/${current.name}.jpg` } width="200px" height="290px"  alt="An awesome picture"></img>
                                 <div className="overlay" key={current} >
-                                    
                                     <h4 className="contenido">Fantasy</h4>
                                     <h4 className="contenido">2020</h4><br/>
-                                    <h4 className=" btn btn-red view-details-btn">View details</h4>  
+                                    <h4 className="btn btn-red view-details-btn">Details</h4>  
                                 </div>
                                 <div>
                                     <h4 className="contenido">{current.name}</h4>
