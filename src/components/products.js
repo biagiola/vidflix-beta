@@ -32,32 +32,12 @@ class Products extends Component {
         (this.state.products.length > 0) ? 
              this.state.products.map( current => {
                  console.log(current)
-                return (<span className="row">
-                            <div className="col s12 m6">
-                            <div className="card red darken-1">
-                                <div className="card-content white-text">
-                                <div>
-                                    <img id="card-info" src={`http://localhost:5000/uploads/${current.name}.jpg` } height="350px" weight="350px"></img>
-                                    <h3 id="card-info" key={current} className="card-title ">{current.name}</h3><br/>
-                                    <p id="card-info">{current.price} $</p>
-                                </div>
-                                    
-                                
-                                <div className="card-description">
-                                    <h3 key={current} className="card-title ">{current.name}</h3>
-                                    
-                                </div>
-                                <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                                </div>
-
-                                <div className="card-action">
-                                <a href="#">This is a link</a>
-                                <a href="#">This is a link</a>
-                                </div>
-                            </div>
-                            </div>
-                        </span>
+                return (<figure className="card">
+                            <img id="" src={`http://localhost:5000/uploads/${current.name}.jpg` } height="200px" weight="200px"></img>
+                            <figcaption>
+                                <p key={current} >{current.name}</p>
+                            </figcaption>    
+                        </figure>
                 )
             }
         ) : ''
@@ -70,12 +50,10 @@ class Products extends Component {
         console.log('render, titles', titles)        
         return (
             <div className="wrapper container">
-                
                 <h4 className="center">Watch now!</h4>
-                
                 <Link to={'/register'} id="button" className="btn">ASDF</Link>  
                 <Link to={'/'} id="button" className="btn" >BACK</Link>  
-                <div id="data ">
+                <div id="content">
                     { titles }
                 </div>
                 
