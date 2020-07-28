@@ -20,7 +20,7 @@ img {
 
 #content {
   display: grid;
-  grid-template-columns: repeat(3, 2fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-gap: 10px;
   position: absolute;
 }
@@ -31,7 +31,7 @@ img {
   cursor: pointer;
   transition: 0.2s;
   box-sizing: content-box;
-  height: 28em;
+  height: 23em;
 }
 
 .card:hover {
