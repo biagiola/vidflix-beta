@@ -32,12 +32,20 @@ class Products extends Component {
         (this.state.products.length > 0) ? 
              this.state.products.map( current => {
                  console.log(current)
-                return (<figure className="card">
-                            <img id="" src={`http://localhost:5000/uploads/${current.name}.jpg` } height="200px" weight="200px"></img>
-                            <figcaption>
-                                <p key={current} >{current.name}</p>
-                            </figcaption>    
-                        </figure>
+                 return (<div class="">
+                            <div className="card">
+                                <img src={`http://localhost:5000/uploads/${current.name}.jpg` } width="200px" height="290px"  alt="An awesome picture"></img>
+                                <div className="overlay" key={current} >
+                                    
+                                    <h4 className="contenido">Fantasy</h4>
+                                    <h4 className="contenido">2020</h4><br/>
+                                    <h4 className=" btn btn-red view-details-btn">View details</h4>  
+                                </div>
+                                <div>
+                                    <h4 className="contenido">{current.name}</h4>
+                                </div>
+                            </div>
+                        </div>
                 )
             }
         ) : ''
@@ -51,14 +59,14 @@ class Products extends Component {
         return (
             <div className="wrapper container">
                 <h4 className="center">Watch now!</h4>
+
                 <Link to={'/register'} id="button" className="btn">ASDF</Link>  
                 <Link to={'/'} id="button" className="btn" >BACK</Link>  
+
                 <div id="content">
                     { titles }
                 </div>
                 
-                <br/>
-                { buttons }
             </div>
         )
     }

@@ -5,13 +5,82 @@ html {
 a {
   color: white;
 }
+h6 {
+  margin: 0 auto;
+}
 ::placeholder {
   color: white
 }
 .nav-wrapper {
   background-color: #E50914;
-  
 }
+img {
+  display: block;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: repeat(3, 2fr);
+  grid-gap: 10px;
+  position: absolute;
+}
+
+.card {
+  background-color: #161616;
+  border: 3px solid #161616;
+  cursor: pointer;
+  transition: 0.2s;
+  box-sizing: content-box;
+  height: 28em;
+}
+
+.card:hover {
+  opacity: 1;
+  border: 3px solid #bd0009;
+  transition: 0.2s;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background: rgba(0, 0, 0, 0.8); 
+}
+
+#content .overlay:hover {
+  opacity: 1;
+}
+
+.contenido {
+  position: relative;
+  text-align: center;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 18px;
+}
+.view-details-btn {
+  position: static;
+  text-align: center;
+  
+  margin: 45px auto;
+  background-color: #bd0009;
+  font-weight: bold;
+  font-size: 1.5em;
+  /*margin-top: 2rem;*/
+}
+.btn-red:hover {
+  background-color: #9b0008;
+}
+
+
 #register-msg {
   font-size: 3rem;
   padding: 3rem 1rem 1rem;
@@ -25,6 +94,7 @@ a {
   transform: scale(1.1);
   transition: 0.3s;
 }
+
 #button {
   background-color: #E50914;
   margin: 5px;
@@ -40,9 +110,7 @@ a {
   animation-iteration-count: 1; 
   animation-fill-mode: forwards;
 }
-#card-info {
-  display: inline;
-}
+
 @keyframes fadeInAnimation { 
   0% { 
       opacity: 0; 
@@ -51,15 +119,8 @@ a {
       opacity: 1; 
    } 
 }
-.card {
-  cursor: pointer;
-  transition: 0.1s;
-}
-.card:hover {
-  transform: scale(1.1);
-  transition: 0.1s;
-}
- /* label focus color */
+
+ /* Input focus colour */
  input:-webkit-autofill,
  input:-webkit-autofill:hover, 
  input:-webkit-autofill:focus, 
@@ -101,6 +162,8 @@ a {
     opacity: 0;
     transition: opacity 800ms linear;
 }
+
+
 
 
 
