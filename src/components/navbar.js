@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import { toggleSidebar } from '../actions/actions'
+import { toggleSidebar } from '../actions/actions';
+import { Link } from 'react-router-dom';
 
 import Sidebar from './sidebar';
 
@@ -27,6 +28,10 @@ class navbar extends Component {
                     <ul id="nav-mobile" class="left hide-on-sm-and-down">
                         <li onClick={ this.toggleSidebar } style={{fontSize:"30px", cursor:"pointer"}}>&#9776;</li>
                     </ul>
+                    <ul id="nav-mobile" class="right hide-on-sm-and-down">
+                        <Link to={'/'} onClick={ this.toggleSidebar }>Logout</Link>
+                    </ul>
+                    
                 </div>
             </nav>
             : <nav>

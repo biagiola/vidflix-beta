@@ -1,49 +1,40 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-/*import { Link } from 'react-router-dom';
-import { PropTypes } from 'prop-types';
+import { Link } from 'react-router-dom';
+/*import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';*/
 
 class Products extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            products: ''
+            product: ''
         };
         //this.onChangeLenguage = this.onChangeLenguage.bind(this);
     }
     
     componentDidMount() {
         // get the lenguages before the render
-        axios.get('http://localhost:5000/products/')
+        axios.get(`http://localhost:5000/products/${this.props.match.params.productId}`)
             .then( res => {
                 //if( res.data.products > 0 ) {
                     console.log('entro', res)
                     this.setState({
-                        products: res.data.products.map( books => books.name )
+                        product: res.data.product
                     })
                 //}
             })
         
-        console.log('componentDidMount, this.state.products', this.state.products)
+        console.log('componentDidMount, this.state.product', this.state.product)
     }
 
     render() {
-        console.log('render, this.state.products', this.state.products)
-        const titles = 
-        (this.state.products.length > 0) ? 
-             this.state.products.map( current => {
-                return <div key={current}>{current}</div>
-            }
-        ) : ''
-        /*this.state.products.forEach(element => {
-            console.log(element)
-        });*/
-        console.log('render, titles', titles)        
         return (
             <div className="wrapper container">
-                <h3 className="">Products</h3>
-                { titles }
+                <h3 className="">ID: {this.state.product._id}</h3>
+                <h3 className="">Product: {this.state.product.name}</h3>
+                <h3 className="">Price: {this.state.product.price}$</h3>
+                <Link to={ '/products/'}className="btn btn-red">Back</Link>
             </div>
         )
     }

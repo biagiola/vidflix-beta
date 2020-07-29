@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 class Products extends Component {
     constructor(props) {
@@ -38,7 +38,7 @@ class Products extends Component {
                                 <div className="overlay" key={current} >
                                     <h4 className="contenido">Fantasy</h4>
                                     <h4 className="contenido">2020</h4><br/>
-                                    <h4 className="btn btn-red view-details-btn">Details</h4>  
+                                    <Link to={`/casa/${current._id}`} className="btn btn-red view-details-btn">Details</Link>  
                                 </div>
                                 <div>
                                     <h4 className="contenido">{current.name}</h4>
