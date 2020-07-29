@@ -1,12 +1,12 @@
 const initialState = {
-    authToken: '',
+    authToken: null,
     toggleSidebar: true
 }
 
 export default function(state = initialState, action) {
     switch(action.type){
-        case 'AUTH_TOKEN':
-            console.log('AUTH_TOKEN')
+        case 'NEW_AUTH_TOKEN':
+            console.log('reducer token')
             return {
                 ...state,
                 authToken: action.payload
@@ -15,7 +15,7 @@ export default function(state = initialState, action) {
             console.log('TOGGLE_SIDEBAR reducer')
             return {
                 ...state,
-                authToken: action.payload
+                authToken: null
             }         
         default:
             return state;

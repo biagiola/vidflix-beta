@@ -1,7 +1,7 @@
 export const setNewToken = token => dispatch => {
   console.log('actions: token: ', token)
   dispatch({
-    type: 'AUTH_TOKEN',
+    type: 'NEW_AUTH_TOKEN',
     payload: token
   })
 }

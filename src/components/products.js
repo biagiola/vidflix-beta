@@ -23,16 +23,16 @@ class Products extends Component {
                 //}
             })
         
-        console.log('componentDidMount, this.state.products', this.state.products)
+        //console.log('componentDidMount, this.state.products', this.state.products)
     }
 
     render() {
-        console.log('render, this.state.products', this.state.products)
+        //console.log('render, this.state.products', this.state.products)
         const titles = 
         (this.state.products.length > 0) ? 
              this.state.products.map( current => {
-                 console.log(current)
-                 return (<div class="">
+                 //console.log(current)
+                 return (<div className="">
                             <div className="card">
                                 <img src={`http://localhost:5000/uploads/${current.name}.jpg` } width="200px" height="290px"  alt="An awesome picture"></img>
                                 <div className="overlay" key={current} >
@@ -40,7 +40,7 @@ class Products extends Component {
                                     <h4 className="contenido">2020</h4><br/>
                                     <Link to={`/casa/${current._id}`} className="btn btn-red view-details-btn">Details</Link>  
                                 </div>
-                                <div>
+                                <div className="">
                                     <h4 className="contenido">{current.name}</h4>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@ class Products extends Component {
         console.log('render, titles', titles)        
         return (
             <div className="wrapper container">
-                <h4 className="center">Watch now!</h4>
+                <h4 className="center">Lasted Movies</h4>
 
                 <Link to={'/register'} id="button" className="btn">ASDF</Link>  
                 <Link to={'/'} id="button" className="btn" >BACK</Link>  
