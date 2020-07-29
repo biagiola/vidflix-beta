@@ -46,22 +46,28 @@ class Products extends Component {
             })
             .catch( err => {
                 console.log('product.js delete then ', err)
-                alert(err)
+                alert('Unauthorized user')
             })
     }
 
     render() {
+        const deleteButton = this.props.authToken ? 
+            (<button onClick={ this.deleteProduct } className="btn btn-red">DeleteT</button>) 
+            : 
+            ('')
         return (
             <div className="wrapper container">
                 <h3 className="">ID: {this.state.product._id}</h3>
                 <h3 className="">Product: {this.state.product.name}</h3>
                 <h3 className="">Price: {this.state.product.price}$</h3>
+                <Link to={ '/products/'} className="btn btn-red">Back</Link>
+                { deleteButton }
                 <img 
                     src={`http://localhost:5000/uploads/${this.state.product.name}.jpg` } 
                     alt={`${this.state.product.name}`}></img>
                 <br/>
-                <Link to={ '/products/'} className="btn btn-red">Back</Link>
-                <button onClick={ this.deleteProduct } className="btn btn-red">Delete</button>
+                
+                
             </div>
         )
     }
