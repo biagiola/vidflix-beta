@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-/*import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';*/
+import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
 
 class Products extends Component {
     constructor(props) {
@@ -10,7 +10,7 @@ class Products extends Component {
         this.state = {
             product: ''
         };
-        //this.onChangeLenguage = this.onChangeLenguage.bind(this);
+        this.deleteProduct = this.deleteProduct.bind(this);
     }
     
     componentDidMount() {
@@ -18,14 +18,36 @@ class Products extends Component {
         axios.get(`http://localhost:5000/products/${this.props.match.params.productId}`)
             .then( res => {
                 //if( res.data.products > 0 ) {
-                    console.log('entro', res)
                     this.setState({
                         product: res.data.product
                     })
                 //}
             })
+    }
+
+    deleteProduct(e) {
+        e.preventDefault()
+
+        const config = {
+            headers: { Authorization: `Bearer ${this.props.authToken}` }
+        };
         
-        console.log('componentDidMount, this.state.product', this.state.product)
+        const bodyParameters = {
+           key: "value"
+        };
+        
+        axios.delete( 
+            'http://localhost:5000/products/' + this.props.match.params.productId,
+            config
+        )
+            .then( res => {
+                console.log('product.js delete then ', res)
+                this.props.history.push('/products')
+            })
+            .catch( err => {
+                console.log('product.js delete then ', err)
+                alert(err)
+            })
     }
 
     render() {
@@ -38,10 +60,15 @@ class Products extends Component {
                     src={`http://localhost:5000/uploads/${this.state.product.name}.jpg` } 
                     alt={`${this.state.product.name}`}></img>
                 <br/>
-                <Link to={ '/products/'}className="btn btn-red">Back</Link>
+                <Link to={ '/products/'} className="btn btn-red">Back</Link>
+                <button onClick={ this.deleteProduct } className="btn btn-red">Delete</button>
             </div>
         )
     }
 }
 
-export default Products;
+const mapStateToProps = state => ({
+    authToken: state.casa.authToken
+})
+
+export default connect(mapStateToProps, null)(Products);

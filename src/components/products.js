@@ -38,7 +38,7 @@ class Products extends Component {
                                 <div className="overlay" key={current} >
                                     <h4 className="contenido">Fantasy</h4>
                                     <h4 className="contenido">2020</h4><br/>
-                                    <Link to={`/casa/${current._id}`} className="btn btn-red view-details-btn">Details</Link>  
+                                    <Link to={`/${current._id}`} className="btn btn-red view-details-btn">Details</Link>  
                                 </div>
                                 <div className="">
                                     <h4 className="contenido">{current.name}</h4>
