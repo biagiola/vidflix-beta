@@ -34,6 +34,10 @@ class Products extends Component {
                 <h3 className="">ID: {this.state.product._id}</h3>
                 <h3 className="">Product: {this.state.product.name}</h3>
                 <h3 className="">Price: {this.state.product.price}$</h3>
+                <img 
+                    src={`http://localhost:5000/uploads/${this.state.product.name}.jpg` } 
+                    alt={`${this.state.product.name}`}></img>
+                <br/>
                 <Link to={ '/products/'}className="btn btn-red">Back</Link>
             </div>
         )
