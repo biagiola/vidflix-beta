@@ -50,11 +50,11 @@ class navbar extends Component {
                 </div>
             </nav> 
 
-        const sidebar = this.props.toggleSidebarValue ? <Sidebar/> : <div></div>
+        
         return (
             <div>
+                <Sidebar/>
                 { navbar }
-                { sidebar }
             </div>
         )
     }
