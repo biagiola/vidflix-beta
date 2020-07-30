@@ -53,8 +53,8 @@ class navbar extends Component {
         const sidebar = this.props.toggleSidebarValue ? <Sidebar/> : <div></div>
         return (
             <div>
-                { sidebar }
                 { navbar }
+                { sidebar }
             </div>
         )
     }

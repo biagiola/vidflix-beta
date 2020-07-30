@@ -19,6 +19,7 @@ class Sidebar extends Component {
 
     render() {
         let scope;
+        console.log('this.props.toggleSidebarValue',this.props.toggleSidebarValue)
         if (this.props.toggleSidebarValue) {
             scope = "250px";
         } else {
@@ -26,12 +27,12 @@ class Sidebar extends Component {
         }
 
         return (
-            <div id="myLeftSidenav" className="leftSidenav" >
-                <h4 className="closebtn" onClick={ this.toggleSidebar }>&times;</h4>
-                <h1 >Account</h1>
-                <h2  >Stadistics</h2>
-                <h2  >Training</h2>
-                <h2  >Read More</h2>
+            <div id="mySidenav" className="sidebar" style={{ width: scope }}>
+                <h6 href="javascript:void(0)" className="closebtn" onClick={ this.toggleSidebar }>&times;</h6>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
             </div>
         );
     }

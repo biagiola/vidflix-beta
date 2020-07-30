@@ -73,11 +73,11 @@ class login extends Component {
                     </div>
 
                     <div id="register-msg" className="center">Sign Up and See What's is Next!</div>
-                        <div className="center-align">
-                            <button id="button" className="btn register-btn">
-                                <Link to={'/register'} >Register</Link>            
-                            </button>
-                        </div>
+                    <div className="center-align">
+                        <button id="button" className="btn register-btn">
+                            <Link to={'/register'} >Register</Link>            
+                        </button>
+                    </div>
                 </form>     
             </div>
         )

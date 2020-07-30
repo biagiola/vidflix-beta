@@ -57,7 +57,6 @@ class Products extends Component {
             ('')
         return (
             <div className="wrapper container">
-                <h3 className="">ID: {this.state.product._id}</h3>
                 <h3 className="">Product: {this.state.product.name}</h3>
                 <h3 className="">Price: {this.state.product.price}$</h3>
                 <Link to={ '/products/'} className="btn btn-red">Back</Link>

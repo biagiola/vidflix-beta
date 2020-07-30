@@ -38,20 +38,20 @@ class addProduct extends Component {
     onSubmit(e) {
         e.preventDefault();
         //console.log(this.state.image);
+        
+        /*const formData = new FormData()
+        var img = formData.append(
+            'productImage',
+            this.state.image,
+            this.state.image.name
+        )*/
+            
         const product = {
             name: this.state.name,
             price: this.state.price,
-            image: this.state.image
+            
         }
-
-        /*const formData = new FormData()
-        formData.append(
-            this.state.name,
-            this.state.price,
-            this.state.image,
-        )*/
-
-        console.log('onSubmit ', product)
+        //console.log('onSubmit ', formData)
         Axios.post('http://localhost:5000/products', product)
             .then( res => {
                 this.props.history.push('/products')
