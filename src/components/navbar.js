@@ -13,7 +13,7 @@ class navbar extends Component {
             login: false,
             authToken: null
         }
-        this.toggleSidebar = this.toggleSidebar.bind(this);
+        this.handleSidebar = this.handleSidebar.bind(this);
     }
 
     componentDidMount() {
@@ -22,7 +22,7 @@ class navbar extends Component {
         })
     }
 
-    toggleSidebar() {
+    handleSidebar() {
         this.props.toggleSidebar()
     }
     
@@ -32,10 +32,10 @@ class navbar extends Component {
                 <div className="nav-wrapper">
                     <a href="#" className="brand-logo center">Vidflix</a>
                     <ul id="nav-mobile" className="left hide-on-sm-and-down">
-                        <li onClick={ this.toggleSidebar } style={{fontSize:"30px", cursor:"pointer"}}>&#9776;</li>
+                        <li onClick={ this.handleSidebar } style={{fontSize:"30px", cursor:"pointer"}}>&#9776;</li>
                     </ul>
                     <ul id="nav-mobile" className="right hide-on-sm-and-down">
-                        <Link to={'/'} onClick={ this.toggleSidebar }>Logout</Link>
+                        <Link to={'/'} onClick={ this.handleSidebar }>Logout</Link>
                     </ul>
                     
                 </div>
@@ -50,7 +50,7 @@ class navbar extends Component {
                 </div>
             </nav> 
 
-        const sidebar = this.props.toggleSidebar ? <div></div> : <Sidebar/>
+        const sidebar = this.props.toggleSidebarValue ? <Sidebar/> : <div></div>
         return (
             <div>
                 { sidebar }
@@ -65,7 +65,8 @@ navbar.propTypes = {
 }
 
 const mapStateToProps = state => ({
-    authToken: state.casa.authToken
+    authToken: state.casa.authToken,
+    toggleSidebarValue: state.casa.toggleSidebarValue
 })
 
 const mapDispatchToProps = dispatch => {

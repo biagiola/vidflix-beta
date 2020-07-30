@@ -1,18 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { toggleSidebar } from '../actions/actions';
 
-class LeftNavbar extends Component {
+class Sidebar extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             modal: false,
             title: ''
         }
+        this.toggleSidebar = this.toggleSidebar.bind(this);
+    }
+
+    toggleSidebar() {
+        console.log('holi');
+        this.props.toggleSidebar()
     }
 
     render() {
         let scope;
-        if (this.props.toggleSidebar) {
+        if (this.props.toggleSidebarValue) {
             scope = "250px";
         } else {
             scope = "0px"
@@ -20,7 +27,7 @@ class LeftNavbar extends Component {
 
         return (
             <div id="myLeftSidenav" className="leftSidenav" >
-                <h4 className="closebtn" onClick={ this.props.close }>&times;</h4>
+                <h4 className="closebtn" onClick={ this.toggleSidebar }>&times;</h4>
                 <h1 >Account</h1>
                 <h2  >Stadistics</h2>
                 <h2  >Training</h2>
@@ -31,7 +38,13 @@ class LeftNavbar extends Component {
 }
 
 const mapStateToPros = state => ({
-    toggleSidebar: state.casa.toggleSidebar
+    toggleSidebarValue: state.casa.toggleSidebarValue
 })
 
-export default connect(mapStateToPros, null)(LeftNavbar);
+const mapDispatchToProps = dispatch => {
+    return {
+        toggleSidebar: () => dispatch(toggleSidebar())
+    }
+}
+
+export default connect(mapStateToPros, mapDispatchToProps)(Sidebar);
