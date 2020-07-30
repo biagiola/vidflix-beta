@@ -7,10 +7,12 @@ class addProduct extends Component {
         super(props)
         this.state = {
             name: '',
-            price: null
+            price: null,
+            image: null
         }
         this.changeName = this.changeName.bind(this)
         this.changePrice = this.changePrice.bind(this)
+        this.changeImage = this.changeImage.bind(this)
         this.onSubmit = this.onSubmit.bind(this)
     }
 
@@ -26,13 +28,29 @@ class addProduct extends Component {
         })
     }
 
+    changeImage(e) {
+        //console.log(e)
+        this.setState({ 
+            image: e.target.files[0] 
+        })
+    }
+
     onSubmit(e) {
         e.preventDefault();
-
+        //console.log(this.state.image);
         const product = {
             name: this.state.name,
-            price: this.state.price
+            price: this.state.price,
+            image: this.state.image
         }
+
+        /*const formData = new FormData()
+        formData.append(
+            this.state.name,
+            this.state.price,
+            this.state.image,
+        )*/
+
         console.log('onSubmit ', product)
         Axios.post('http://localhost:5000/products', product)
             .then( res => {
@@ -59,10 +77,15 @@ class addProduct extends Component {
                         <input 
                             id="form-password-add"
                             type="text" 
-                            placeholder="Password..."
+                            placeholder="Price..."
                             value={ this.state.price }
                             onChange={ this.changePrice }/>
-                        <input type="submit" className="btn btn-red"/>
+                        <br/>
+                        <input 
+                            type="file" 
+                            onChange={ this.changeImage }
+                        />
+                        <button onClick={ this.onSubmit }>Upload!</button>
                         <Link 
                             to={'/products'} 
                             className="btn btn-red" 
