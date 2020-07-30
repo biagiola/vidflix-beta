@@ -59,7 +59,7 @@ class Products extends Component {
             <div className="wrapper container">
                 <h4 className="center">Lasted Movies</h4>
 
-                <Link to={'/register'} id="button" className="btn">ASDF</Link>  
+                <Link to={'/add'} id="button" className="btn">add</Link>  
                 <Link to={'/'} id="button" className="btn" >BACK</Link>  
 
                 <div id="content">

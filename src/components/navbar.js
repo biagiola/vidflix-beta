@@ -40,17 +40,20 @@ class navbar extends Component {
                     
                 </div>
             </nav>
-            : <nav>
+        :
+            <nav>
                 <div className="nav-wrapper">
                     <a href="#" className="brand-logo center">Vidflix</a>
+                    <ul id="nav-mobile" className="right hide-on-sm-and-down">
+                        <Link to={'/'} className>Login</Link>
+                    </ul>
                 </div>
             </nav> 
 
-        const sidebar = this.props.toggleSidebar ? <Sidebar/> : <div></div>
-
+        const sidebar = this.props.toggleSidebar ? <div></div> : <Sidebar/>
         return (
             <div>
-                
+                { sidebar }
                 { navbar }
             </div>
         )

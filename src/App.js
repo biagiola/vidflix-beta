@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import Navbar from './components/navbar';
 import Login from './components/login';
 import Products from './components/products';
 import Product from './components/product';
+import AddProduct from './components/addProduct';
 import Orders from './components/orders';
 import Users from './components/users';
 import Register from './components/register';
@@ -30,6 +32,7 @@ function App() {
             >
               <Switch >
                 <Route exact path="/" component={ Login } />
+                <Route path="/add" component={ AddProduct } />
                 <Route path="/products" component={ Products } />
                 <Route path="/:productId" component={ Product } />
                 <Route path="/orders" component={ Orders } />
