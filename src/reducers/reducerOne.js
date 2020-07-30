@@ -1,6 +1,6 @@
 const initialState = {
     authToken: null,
-    toggleSidebar: true
+    toggleSidebarValue: true
 }
 
 export default function(state = initialState, action) {
@@ -15,7 +15,7 @@ export default function(state = initialState, action) {
             console.log('TOGGLE_SIDEBAR reducer')
             return {
                 ...state,
-                authToken: null
+                toggleSidebarValue: !state.toggleSidebarValue
             }         
         default:
             return state;
