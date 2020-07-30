@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Axios from 'axios';
+import { Link } from 'react-router-dom';
 
 class addProduct extends Component {
     constructor(props){
@@ -35,7 +36,7 @@ class addProduct extends Component {
         console.log('onSubmit ', product)
         Axios.post('http://localhost:5000/products', product)
             .then( res => {
-                alert('It s works')
+                this.props.history.push('/products')
             })
             .catch( err => {
                 alert('Doest not work')
@@ -62,7 +63,12 @@ class addProduct extends Component {
                             value={ this.state.price }
                             onChange={ this.changePrice }/>
                         <input type="submit" className="btn btn-red"/>
+                        <Link 
+                            to={'/products'} 
+                            className="btn btn-red" 
+                        >Cancel</Link>            
                     </div>
+                    
                 </form>
             </div>
         )
