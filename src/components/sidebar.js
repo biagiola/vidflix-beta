@@ -13,13 +13,12 @@ class Sidebar extends Component {
     }
 
     toggleSidebar() {
-        console.log('holi');
         this.props.toggleSidebar()
     }
 
     render() {
         let scope;
-        console.log('this.props.toggleSidebarValue',this.props.toggleSidebarValue)
+        //console.log('this.props.toggleSidebarValue',this.props.toggleSidebarValue)
         if (this.props.toggleSidebarValue) {
             scope = "250px";
         } else {

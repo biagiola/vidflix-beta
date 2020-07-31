@@ -32,10 +32,6 @@ class Products extends Component {
             headers: { Authorization: `Bearer ${this.props.authToken}` }
         };
         
-        const bodyParameters = {
-           key: "value"
-        };
-        
         axios.delete( 
             'http://localhost:5000/products/' + this.props.match.params.productId,
             config

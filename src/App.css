@@ -28,7 +28,6 @@ img {
 .card {
   background-color: #161616;
   border: 3px solid #161616;
-  cursor: pointer;
   transition: 0.2s;
   box-sizing: content-box;
   height: 24em;
@@ -65,19 +64,20 @@ img {
   transform: translate(-50%, -50%);
   color: #fff;
   font-size: 18px;
+  cursor: default;
 }
 .view-details-btn {
   position: static;
+  font-weight: bold;
+  font-size: 1.5em;
   text-align: center;
   margin: 45px 2em;
   background-color: #bd0009;
-  font-weight: bold;
-  font-size: 1.5em;
+  cursor: pointer;
 }
 .btn-red:hover {
   background-color: #9b0008;
 }
-
 
 #register-msg {
   font-size: 3rem;
@@ -117,6 +117,8 @@ img {
       opacity: 1; 
    } 
 }
+
+
 
  /* Input focus colour */
  input:-webkit-autofill,

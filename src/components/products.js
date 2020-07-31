@@ -32,7 +32,7 @@ class Products extends Component {
         (this.state.products.length > 0) ? 
              this.state.products.map( current => {
                  //console.log(current)
-                 return (<div className="">
+                 return (<div id="main">
                             <div className="card">
                                 <img src={`http://localhost:5000/uploads/${current.name}.jpg` } width="200px" height="290px"  alt="An awesome picture"></img>
                                 <div className="overlay" key={current} >
