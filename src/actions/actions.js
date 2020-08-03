@@ -6,6 +6,13 @@ export const setNewToken = token => dispatch => {
   })
 }
 
+export const toggleNavbar = () => dispatch => {
+  console.log('actions: toggleNavItmes: ')
+  dispatch({
+    type: 'TOGGLE_NAV_ITEMS',
+  })
+}
+
 export const toggleSidebar = () => dispatch => {
   console.log('actions: toggleSidebar: ')
   dispatch({

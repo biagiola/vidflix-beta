@@ -1,6 +1,7 @@
 const initialState = {
     authToken: null,
-    toggleSidebarValue: true
+    toggleSidebarValue: false,
+    toggleNavItemsValue: false
 }
 
 export default function(state = initialState, action) {
@@ -10,6 +11,12 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 authToken: action.payload
+            }
+        case 'TOGGLE_NAV_ITEMS':
+            console.log('TOGGLE_SIDEBAR reducer')
+            return {
+                ...state,
+                toggleNavItemsValue: !state.toggleNavItemsValue
             }
         case 'TOGGLE_SIDEBAR':
             console.log('TOGGLE_SIDEBAR reducer')

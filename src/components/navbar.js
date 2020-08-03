@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
 import { toggleSidebar, toggleNavbar } from '../actions/actions';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import Sidebar from './sidebar';
 
@@ -28,11 +28,16 @@ class navbar extends Component {
     }
 
     handleNavbar() {
+        this.setState({
+            authToken: null
+        })
         this.props.toggleNavbar()
+        //this.props.history.push('/')
     }
     
     render() {
-        const navbar = this.props.authToken !== null ? 
+        console.log('navbar authToken ', this.props.authToken)
+        const navbar = this.props.authToken !== null && !this.props.toggleNavItemsValue ? 
             <nav>
                 <div className="nav-wrapper">
                     <a href="#" className="brand-logo center">Vidflix</a>
@@ -72,7 +77,8 @@ navbar.propTypes = {
 
 const mapStateToProps = state => ({
     authToken: state.casa.authToken,
-    toggleSidebarValue: state.casa.toggleSidebarValue
+    toggleSidebarValue: state.casa.toggleSidebarValue,
+    toggleNavItemsValue: state.casa.toggleNavItemsValue
 })
 
 const mapDispatchToProps = dispatch => {
