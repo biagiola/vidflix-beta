@@ -1,0 +1,176 @@
+html {
+  background-color: black;
+  color: white;
+}
+a {
+  color: white;
+}
+h6 {
+  margin: 0 auto;
+}
+::placeholder {
+  color: white
+}
+.nav-wrapper {
+  background-color: #E50914;
+}
+img {
+  display: inline-block;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+  position: absolute;
+}
+
+.card {
+  background-color: #161616;
+  border: 3px solid #161616;
+  transition: 0.2s;
+  box-sizing: content-box;
+  height: 24em;
+}
+
+.card:hover {
+  opacity: 1;
+  border: 3px solid #bd0009;
+  transition: 0.2s;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background: rgba(0, 0, 0, 0.8); 
+}
+
+#content .overlay:hover {
+  opacity: 1;
+}
+
+.contenido {
+  position: relative;
+  text-align: center;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 18px;
+  cursor: default;
+}
+
+/* Image details container */
+.imgContainer {
+  display: block;
+  background-color: #161616;
+  margin: 2.4rem ;
+}
+
+/* Buttons */
+.view-details-btn {
+  position: static;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  margin: 45px 2em;
+  background-color: #bd0009;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #9b0008;
+}
+
+.btn {
+  background-color: #bd0009;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.register-btn {
+  padding: 10px 30px 45px;
+  font-size: 1.0rem;
+  transition: 0.3s;
+}
+.register-btn:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+#register-msg {
+  font-size: 3rem;
+  padding: 3rem 1rem 1rem;
+}
+
+#data {
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1; 
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation { 
+  0% { 
+      opacity: 0; 
+  } 
+  100% { 
+      opacity: 1; 
+   } 
+}
+
+
+
+ /* Input focus colour */
+ input:-webkit-autofill,
+ input:-webkit-autofill:hover, 
+ input:-webkit-autofill:focus, 
+ input:-webkit-autofill:active  {
+     -webkit-box-shadow: 0 0 0 30px black inset !important;
+     -webkit-text-fill-color: white !important;
+ }
+ input:focus {
+  border-bottom: 1px solid red !important;
+  box-shadow: 0 1px 0 0 red !important;
+  background-color: black;
+}
+ .input-field [type=text] {
+  background-color: black;
+  color:white !important;
+}
+
+/* React transition group classes */
+.wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+}  
+/* simple - enter transition 300ms, exit 150ms */
+.fade-appear,
+.fade-enter {
+    opacity: 0;
+    z-index: 1;
+}
+.fade-appear-active,
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 800ms linear ;
+}
+.fade-exit {
+    opacity: 1;
+}
+.fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 800ms linear;
+}
+
+
+
+
+
