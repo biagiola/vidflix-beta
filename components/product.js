@@ -49,7 +49,7 @@ class Products extends Component {
     render() {
 
         const deleteButton = this.props.authToken ? 
-            (<button onClick={ this.deleteProduct } className="btn">DeleteT</button>) 
+            (<button onClick={ this.deleteProduct } className="btn">Delete</button>) 
             : 
             ('')
 
