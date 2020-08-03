@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 class Products extends Component {
     constructor(props) {
@@ -31,16 +31,16 @@ class Products extends Component {
         const titles = 
         (this.state.products.length > 0) ? 
              this.state.products.map( current => {
-                 //console.log(current)
+                 //console.log(current.productImage.slice(23, -4))
                  return (<div id="main">
                             <div className="card">
-                                <img src={`http://localhost:5000/uploads/${current.name}.jpg` } width="200px" height="290px"  alt="An awesome picture"></img>
+                                <img src={`http://localhost:5000/uploads/${current.productImage.slice(23, -4)}.jpg` } width="200px" height="290px"  alt="An awesome picture"></img>
                                 <div className="overlay" key={current} >
                                     <h4 className="contenido">Fantasy</h4>
                                     <h4 className="contenido">2020</h4><br/>
                                     <Link to={`/${current._id}`} className="btn btn-red view-details-btn">Details</Link>  
                                 </div>
-                                <div className="">
+                                <div className="title">
                                     <h4 className="contenido">{current.name}</h4>
                                 </div>
                             </div>

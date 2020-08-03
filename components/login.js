@@ -50,35 +50,37 @@ class login extends Component {
 
     render() {
         return (
-            <div className="wrapper container">
-                <h4>Login</h4>
-                <form onSubmit={ this.onSubmit } className="input-field">
-                    <div className="col s12 l6">
-                        <input 
-                            id="form-email" 
-                            className=""
-                            type="text"
-                            placeholder="Email..."
-                            value={ this.state.email } 
-                            onChange={ this.changeEmail }/>
-                        <br/>
-                        <input 
-                            id="form-password" 
-                            type="text"
-                            placeholder="Password..."
-                            value={ this.state.password } 
-                            onChange={ this.changePassword }/>
-                        <br/>
-                        <button id="button" className="btn">GO</button>
-                    </div>
+            <div className="cover-background">
+                <div className="wrapper container login">
+                    <h4>Login</h4>
+                    <form onSubmit={ this.onSubmit } className="input-field">
+                        <div className="col s12 l6">
+                            <input 
+                                id="form-email" 
+                                className=""
+                                type="text"
+                                placeholder="Email..."
+                                value={ this.state.email } 
+                                onChange={ this.changeEmail }/>
+                            <br/>
+                            <input 
+                                id="form-password" 
+                                type="text"
+                                placeholder="Password..."
+                                value={ this.state.password } 
+                                onChange={ this.changePassword }/>
+                            <br/>
+                            <button id="button" className="btn">GO</button>
+                        </div>
 
-                    <div id="register-msg" className="center">Sign Up and See What's is Next!</div>
-                    <div className="center-align">
-                        <button id="button" className="btn register-btn">
-                            <Link to={'/register'} >Register</Link>            
-                        </button>
-                    </div>
-                </form>     
+                        <div id="register-msg" className="center">Sign Up and See What's is Next!</div>
+                        <div className="center-align">
+                            <button id="button" className="btn register-btn">
+                                <Link to={'/register'} >Register</Link>            
+                            </button>
+                        </div>
+                    </form>     
+                </div>
             </div>
         )
     }

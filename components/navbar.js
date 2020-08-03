@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import { toggleSidebar } from '../actions/actions';
-import { Link } from 'react-router-dom';
+import { toggleSidebar, toggleNavbar } from '../actions/actions';
+import { Link, Redirect } from 'react-router-dom';
 
 import Sidebar from './sidebar';
 
@@ -14,6 +14,7 @@ class navbar extends Component {
             authToken: null
         }
         this.handleSidebar = this.handleSidebar.bind(this);
+        this.handleNavbar = this.handleNavbar.bind(this);
     }
 
     componentDidMount() {
@@ -25,9 +26,18 @@ class navbar extends Component {
     handleSidebar() {
         this.props.toggleSidebar()
     }
+
+    handleNavbar() {
+        this.setState({
+            authToken: null
+        })
+        this.props.toggleNavbar()
+        //this.props.history.push('/')
+    }
     
     render() {
-        const navbar = this.props.authToken !== null ? 
+        console.log('navbar authToken ', this.props.authToken)
+        const navbar = this.props.authToken !== null && !this.props.toggleNavItemsValue ? 
             <nav>
                 <div className="nav-wrapper">
                     <a href="#" className="brand-logo center">Vidflix</a>
@@ -35,7 +45,8 @@ class navbar extends Component {
                         <li onClick={ this.handleSidebar } style={{fontSize:"30px", cursor:"pointer"}}>&#9776;</li>
                     </ul>
                     <ul id="nav-mobile" className="right hide-on-sm-and-down">
-                        <Link to={'/'} onClick={ this.handleSidebar }>Logout</Link>
+                        <li><Link to={'/'} >Browse</Link></li>
+                        <li><Link to={'/'} onClick={ this.handleNavbar }>Logout</Link></li>
                     </ul>
                     
                 </div>
@@ -66,12 +77,14 @@ navbar.propTypes = {
 
 const mapStateToProps = state => ({
     authToken: state.casa.authToken,
-    toggleSidebarValue: state.casa.toggleSidebarValue
+    toggleSidebarValue: state.casa.toggleSidebarValue,
+    toggleNavItemsValue: state.casa.toggleNavItemsValue
 })
 
 const mapDispatchToProps = dispatch => {
     return {
-        toggleSidebar: () => dispatch(toggleSidebar())
+        toggleSidebar: () => dispatch(toggleSidebar()),
+        toggleNavbar: () => dispatch(toggleNavbar())
     }
 }
 
