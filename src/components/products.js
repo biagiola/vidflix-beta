@@ -31,10 +31,10 @@ class Products extends Component {
         const titles = 
         (this.state.products.length > 0) ? 
              this.state.products.map( current => {
-                 //console.log(current)
+                 //console.log(current.productImage.slice(23, -4))
                  return (<div id="main">
                             <div className="card">
-                                <img src={`http://localhost:5000/uploads/${current.name}.jpg` } width="200px" height="290px"  alt="An awesome picture"></img>
+                                <img src={`http://localhost:5000/uploads/${current.productImage.slice(23, -4)}.jpg` } width="200px" height="290px"  alt="An awesome picture"></img>
                                 <div className="overlay" key={current} >
                                     <h4 className="contenido">Fantasy</h4>
                                     <h4 className="contenido">2020</h4><br/>

@@ -52,12 +52,14 @@ class Products extends Component {
             (<button onClick={ this.deleteProduct } className="btn">Delete</button>) 
             : 
             ('')
-
+            
+        const imageName = this.state.product ? this.state.product.productImage.slice(8, -4) : ''
         return (
             <div className="wrapper container">
-                <div id="productData"className="productContainer">
+                <div id="productData" className="productContainer">
                     <img 
-                        src={`http://localhost:5000/uploads/${this.state.product.name}.jpg` } 
+                        id="big-img"
+                        src={`http://localhost:5000/uploads/${imageName}.jpg` } 
                         width="370"                        
                         height="556"
                         alt={`${this.state.product.name}`}>
