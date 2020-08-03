@@ -15,7 +15,7 @@ h6 {
   background-color: #E50914;
 }
 img {
-  display: block;
+  display: inline-block;
 }
 
 #content {
@@ -66,6 +66,15 @@ img {
   font-size: 18px;
   cursor: default;
 }
+
+/* Image details container */
+.imgContainer {
+  display: block;
+  background-color: #161616;
+  margin: 2.4rem ;
+}
+
+/* Buttons */
 .view-details-btn {
   position: static;
   font-weight: bold;
@@ -75,14 +84,16 @@ img {
   background-color: #bd0009;
   cursor: pointer;
 }
-.btn-red:hover {
+
+.btn:hover {
   background-color: #9b0008;
 }
 
-#register-msg {
-  font-size: 3rem;
-  padding: 3rem 1rem 1rem;
+.btn {
+  background-color: #bd0009;
+  display: inline-block;
 }
+
 .register-btn {
   padding: 10px 30px 45px;
   font-size: 1.0rem;
@@ -100,9 +111,16 @@ img {
   animation-iteration-count: 1; 
   animation-fill-mode: forwards;
 }
+
 #button:hover {
   background-color: #bd0009;
 }
+
+#register-msg {
+  font-size: 3rem;
+  padding: 3rem 1rem 1rem;
+}
+
 #data {
   animation: fadeInAnimation ease 1s;
   animation-iteration-count: 1; 

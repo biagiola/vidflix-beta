@@ -53,14 +53,21 @@ class Products extends Component {
             ('')
         return (
             <div className="wrapper container">
-                <h3 className="">Product: {this.state.product.name}</h3>
-                <h3 className="">Price: {this.state.product.price}$</h3>
-                <Link to={ '/products/'} className="btn btn-red">Back</Link>
-                { deleteButton }
-                <img 
-                    src={`http://localhost:5000/uploads/${this.state.product.name}.jpg` } 
-                    alt={`${this.state.product.name}`}></img>
-                <br/>
+                <div className="center">
+                    <h3 className="">Product: {this.state.product.name}</h3>
+                    <h3 className="">Price: {this.state.product.price}$</h3>
+
+                    <Link to={ '/products/'} className="btn">Back</Link>
+                    { deleteButton }
+                    <div className="imgContainer">
+                        <img 
+                            src={`http://localhost:5000/uploads/${this.state.product.name}.jpg` } 
+                            width=""
+                            height=""
+                            alt={`${this.state.product.name}`}></img>
+                        <br/>
+                    </div>
+                </div>
                 
                 
             </div>
