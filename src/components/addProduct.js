@@ -7,7 +7,7 @@ class addProduct extends Component {
         super(props)
         this.state = {
             name: '',
-            price: null,
+            price: 0,
             image: null
         }
         this.changeName = this.changeName.bind(this)
@@ -38,26 +38,19 @@ class addProduct extends Component {
     onSubmit(e) {
         e.preventDefault();
         //console.log(this.state.image);
-        
-        /*const formData = new FormData()
-        var img = formData.append(
-            'productImage',
-            this.state.image,
-            this.state.image.name
-        )*/
-            
-        const product = {
-            name: this.state.name,
-            price: this.state.price,
-            
-        }
-        //console.log('onSubmit ', formData)
-        Axios.post('http://localhost:5000/products', product)
-            .then( res => {
+
+        let formData = new FormData();
+        formData.append('name', this.state.name);
+        formData.append('price', this.state.price);
+        formData.append('productImage', this.state.image,this.state.image.name);
+
+        console.log('onSubmit formData: ', formData)
+        Axios.post('http://localhost:5000/products', formData)
+            .then( 
                 this.props.history.push('/products')
-            })
+            )
             .catch( err => {
-                alert('Doest not work')
+                alert('Doest not work ', err)
             })
     }
     

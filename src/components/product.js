@@ -47,28 +47,32 @@ class Products extends Component {
     }
 
     render() {
+
         const deleteButton = this.props.authToken ? 
-            (<button onClick={ this.deleteProduct } className="btn btn-red">DeleteT</button>) 
+            (<button onClick={ this.deleteProduct } className="btn">Delete</button>) 
             : 
             ('')
+
         return (
             <div className="wrapper container">
-                <div className="center">
-                    <h3 className="">Product: {this.state.product.name}</h3>
-                    <h3 className="">Price: {this.state.product.price}$</h3>
-
-                    <Link to={ '/products/'} className="btn">Back</Link>
-                    { deleteButton }
-                    <div className="imgContainer">
-                        <img 
-                            src={`http://localhost:5000/uploads/${this.state.product.name}.jpg` } 
-                            width=""
-                            height=""
-                            alt={`${this.state.product.name}`}></img>
-                        <br/>
+                <div id="productData"className="productContainer">
+                    <img 
+                        src={`http://localhost:5000/uploads/${this.state.product.name}.jpg` } 
+                        width="370"                        
+                        height="556"
+                        alt={`${this.state.product.name}`}>
+                    </img>
+                    <div className="descriptionContainer">
+                        <h4 className="">{this.state.product.name}</h4>
+                        <h4 className="">{this.state.product.price}$</h4>
+                        <h4>Synapsis</h4>
+                        <p id="synapsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                 </div>
-                
+                <div id="productBtns">
+                    <Link to={ '/products/'} className="btn">Back</Link>
+                    { deleteButton }
+                </div>
                 
             </div>
         )

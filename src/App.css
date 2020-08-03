@@ -8,14 +8,48 @@ a {
 h6 {
   margin: 0 auto;
 }
+h4 {
+  margin-top: 0px;
+}
 ::placeholder {
   color: white
 }
 .nav-wrapper {
   background-color: #E50914;
 }
-img {
-  display: inline-block;
+.title .contenido {
+  margin-top: 1.7em;
+}
+
+/* Image details container */
+.productContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 1.7em;
+  grid-gap: 0px; 
+  /*background-color: #161616;*/
+  /*margin: 2.4rem ;*/
+}
+.productContainer img {
+  text-align: center;
+  align-self: stretch;
+  justify-self: center;
+}
+.productContainer .card {
+  margin-top: 0px !important;
+  height: inherit;
+}
+#productData {
+  margin-bottom: 0px !important;
+}
+.descriptionContainer {
+  /*padding: 0px 0px 0px;*/
+  text-align: justify;
+  padding: 0em 1em 2em;
+  
+}
+#productBtns {
+  margin: 2em 0;
 }
 
 #content {
@@ -67,12 +101,6 @@ img {
   cursor: default;
 }
 
-/* Image details container */
-.imgContainer {
-  display: block;
-  background-color: #161616;
-  margin: 2.4rem ;
-}
 
 /* Buttons */
 .view-details-btn {
@@ -92,6 +120,7 @@ img {
 .btn {
   background-color: #bd0009;
   display: inline-block;
+  margin-right: 0.5em;
 }
 
 .register-btn {
@@ -102,18 +131,6 @@ img {
 .register-btn:hover {
   transform: scale(1.1);
   transition: 0.3s;
-}
-
-#button {
-  background-color: #E50914;
-  margin: 5px;
-  animation: fadeInAnimation ease 2s;
-  animation-iteration-count: 1; 
-  animation-fill-mode: forwards;
-}
-
-#button:hover {
-  background-color: #bd0009;
 }
 
 #register-msg {

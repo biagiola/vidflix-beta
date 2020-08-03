@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Products extends Component {
     constructor(props) {
@@ -40,7 +40,7 @@ class Products extends Component {
                                     <h4 className="contenido">2020</h4><br/>
                                     <Link to={`/${current._id}`} className="btn btn-red view-details-btn">Details</Link>  
                                 </div>
-                                <div className="">
+                                <div className="title">
                                     <h4 className="contenido">{current.name}</h4>
                                 </div>
                             </div>
@@ -49,18 +49,13 @@ class Products extends Component {
             }
         ) : ''
 
-        const buttons = 
-        (this.state.products.length > 0) ? 
-            <button id="button" className="btn">Send</button>
-         : ''
-
-        console.log('render, titles', titles)        
+        //console.log('render, titles', titles)        
         return (
             <div className="wrapper container">
                 <h4 className="center">Lasted Movies</h4>
 
-                <Link to={'/add'} id="button" className="btn">add</Link>  
-                <Link to={'/'} id="button" className="btn" >BACK</Link>  
+                <Link to={'/add'} className="btn">add</Link>  
+                <Link to={'/'} className="btn" >BACK</Link>  
 
                 <div id="content">
                     { titles }

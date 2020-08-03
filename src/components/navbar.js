@@ -53,7 +53,7 @@ class navbar extends Component {
         
         return (
             <div>
-                <Sidebar/>
+                {/*<Sidebar/>*/}
                 { navbar }
             </div>
         )
