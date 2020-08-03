@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import { toggleSidebar } from '../actions/actions';
+import { toggleSidebar, toggleNavbar } from '../actions/actions';
 import { Link } from 'react-router-dom';
 
 import Sidebar from './sidebar';
@@ -14,6 +14,7 @@ class navbar extends Component {
             authToken: null
         }
         this.handleSidebar = this.handleSidebar.bind(this);
+        this.handleNavbar = this.handleNavbar.bind(this);
     }
 
     componentDidMount() {
@@ -25,6 +26,10 @@ class navbar extends Component {
     handleSidebar() {
         this.props.toggleSidebar()
     }
+
+    handleNavbar() {
+        this.props.toggleNavbar()
+    }
     
     render() {
         const navbar = this.props.authToken !== null ? 
@@ -35,7 +40,8 @@ class navbar extends Component {
                         <li onClick={ this.handleSidebar } style={{fontSize:"30px", cursor:"pointer"}}>&#9776;</li>
                     </ul>
                     <ul id="nav-mobile" className="right hide-on-sm-and-down">
-                        <Link to={'/'} onClick={ this.handleSidebar }>Logout</Link>
+                        <li><Link to={'/'} >Browse</Link></li>
+                        <li><Link to={'/'} onClick={ this.handleNavbar }>Logout</Link></li>
                     </ul>
                     
                 </div>
@@ -53,7 +59,7 @@ class navbar extends Component {
         
         return (
             <div>
-                {/*<Sidebar/>*/}
+                <Sidebar/>
                 { navbar }
             </div>
         )
@@ -71,7 +77,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
     return {
-        toggleSidebar: () => dispatch(toggleSidebar())
+        toggleSidebar: () => dispatch(toggleSidebar()),
+        toggleNavbar: () => dispatch(toggleNavbar())
     }
 }
 

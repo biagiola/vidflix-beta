@@ -8,9 +8,11 @@ class Products extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            product: ''
+            product: '',
+            modal: false
         };
         this.deleteProduct = this.deleteProduct.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
     }
     
     componentDidMount() {
@@ -23,6 +25,12 @@ class Products extends Component {
                     })
                 //}
             })
+    }
+
+    toggleModal() {
+        this.setState({
+            modal: !this.state.modal
+        })
     }
 
     deleteProduct(e) {
@@ -49,13 +57,18 @@ class Products extends Component {
     render() {
 
         const deleteButton = this.props.authToken ? 
-            (<button onClick={ this.deleteProduct } className="btn">Delete</button>) 
+            (<button onClick={ this.toggleModal } className="btn">Delete</button>) 
             : 
             ('')
-            
+
         const imageName = this.state.product ? this.state.product.productImage.slice(8, -4) : ''
+
+        const scope = this.state.modal ? "block" : "none"
+        const position = this.state.modal ? "fixed" : "relative"
+
         return (
             <div className="wrapper container">
+
                 <div id="productData" className="productContainer">
                     <img 
                         id="big-img"
@@ -71,11 +84,19 @@ class Products extends Component {
                         <p id="synapsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                 </div>
+                
                 <div id="productBtns">
                     <Link to={ '/products/'} className="btn">Back</Link>
                     { deleteButton }
                 </div>
                 
+                <div className="modal modalDelete" style={{ display: scope, position: position  }}>
+                    <div className="modalContent" >
+                        <p>Are you sure to delete it?</p>
+                        <span className="btn" onClick={ this.deleteProduct }>YES</span>
+                        <span className="btn" onClick={ this.toggleModal }>NO</span>
+                    </div>    
+                </div>
             </div>
         )
     }

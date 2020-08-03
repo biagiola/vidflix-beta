@@ -7,7 +7,7 @@ class addProduct extends Component {
         super(props)
         this.state = {
             name: '',
-            price: 0,
+            price: '',
             image: null
         }
         this.changeName = this.changeName.bind(this)
