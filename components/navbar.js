@@ -27,11 +27,11 @@ class navbar extends Component {
         this.props.toggleSidebar()
     }
 
-    shouldComponentUpdate(){
+    /*shouldComponentUpdate(){
         if(this.state.authToken === null) {
             return true
         }
-    }
+    }*/
 
     handleNavbar() {
         console.log('handleNavbar hola')
@@ -40,7 +40,7 @@ class navbar extends Component {
     
     render() {
         console.log('navbar authToken ', this.props.authToken)
-        const navbar = this.props.toggleNavItemsValue ? 
+        const navbar = this.props.authToken ? 
             <nav>
                 <div className="nav-wrapper">
                     <a href="#" className="brand-logo center">Vidflix</a>
@@ -56,14 +56,36 @@ class navbar extends Component {
                 </div>
             </nav>
         :
-            <nav>
-                <div className="nav-wrapper">
-                    <a href="#" className="brand-logo center">Vidflix</a>
-                    <ul id="nav-mobile" className="right hide-on-sm-and-down">
-                        <Link to={'/'} onClick={ this.handleNavbar } >Login</Link>
-                    </ul>
-                </div>
-            </nav> 
+            ''
+
+        const navbar2 = () => {/*  
+            if( this.props.toggleNavItemsValue ) {
+                return <nav>
+                        <div className="nav-wrapper">
+                            <a href="#" className="brand-logo center">Vidflix</a>
+
+                            <ul id="nav-mobile" className="left hide-on-sm-and-down">
+                                <li onClick={ this.handleSidebar } style={{fontSize:"30px", cursor:"pointer"}}>&#9776;</li>
+                            </ul>
+
+                            <ul id="nav-mobile" className="right hide-on-sm-and-down">
+                                <li><Link to={'/'} >Browse</Link></li>
+                                <li><Link to={'/'}onClick={ this.handleNavbar }>Logout</Link></li>
+                            </ul>
+                        </div>
+                </nav>
+            }
+            if( !this.props.toggleNavItemsValue ) {
+                return <nav>
+                        <div className="nav-wrapper">
+                            <a href="#" className="brand-logo center">Vidflix</a>
+                            <ul id="nav-mobile" className="right hide-on-sm-and-down">
+                                <Link to={'/'} onClick={ this.handleNavbar } >Login</Link>
+                            </ul>
+                        </div>
+                </nav> 
+            }
+        */}
 
         
         return (
