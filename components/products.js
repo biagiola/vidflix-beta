@@ -40,7 +40,7 @@ class Products extends Component {
                                     <h4 className="contenido">2020</h4><br/>
                                     <Link to={`/${current._id}`} className="btn btn-red view-details-btn">Details</Link>  
                                 </div>
-                                <div className="title">
+                                <div className="title-card">
                                     <h4 className="contenido">{current.name}</h4>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@ class Products extends Component {
                 <h4 className="center">Lasted Movies</h4>
 
                 <Link to={'/add'} className="btn">add</Link>  
-                <Link to={'/'} className="btn" >BACK</Link>  
+                <Link to={'/'} className="btn" >logout</Link>  
 
                 <div id="content">
                     { titles }

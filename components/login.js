@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import { setNewToken } from '../actions/actions';
+import { setNewToken, toggleNavbar } from '../actions/actions';
 
 class login extends Component {
     constructor(props) {
@@ -42,10 +42,13 @@ class login extends Component {
                 console.log(':D res: ', res)
                 this.props.setNewToken(res.data.token)
                 this.props.history.push('/products')
-            })
+            }).then (
+                this.props.toggleNavbar()
+            )
             .catch( error => {
                 console.log(error + " :'(");
             })
+        
     }
 
     render() {
@@ -92,7 +95,8 @@ login.propTypes = {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setNewToken: token => dispatch(setNewToken(token))
+    setNewToken: token => dispatch(setNewToken(token)),
+    toggleNavbar: token => dispatch(toggleNavbar(token))
   }
 }
 

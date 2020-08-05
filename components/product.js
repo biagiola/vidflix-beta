@@ -86,7 +86,7 @@ class Products extends Component {
                 </div>
                 
                 <div id="productBtns">
-                    <Link to={ '/products/'} className="btn">Back</Link>
+                    <Link to={ '/products'} className="btn">Back</Link>
                     { deleteButton }
                 </div>
                 
