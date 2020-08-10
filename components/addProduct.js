@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Axios from 'axios';
-import { Link } from 'react-router-dom';
+import Axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class addProduct extends Component {
     constructor(props){
@@ -39,10 +39,10 @@ class addProduct extends Component {
         e.preventDefault();
         //console.log(this.state.image);
 
-        let formData = new FormData();
-        formData.append('name', this.state.name);
-        formData.append('price', this.state.price);
-        formData.append('productImage', this.state.image,this.state.image.name);
+        let formData = new FormData()
+        formData.append('name', this.state.name)
+        formData.append('price', this.state.price)
+        formData.append('productImage', this.state.image,this.state.image.name)
 
         console.log('onSubmit formData: ', formData)
         Axios.post('http://localhost:5000/products', formData)
@@ -58,7 +58,7 @@ class addProduct extends Component {
         return (
             <div className="wrapper container">
                 <h4>Add a movie</h4>
-                <form onSubmit={ this.onSubmit } className="input-field">
+                <form onSubmit={ this.onSubmit } className="">
                     <div className="col s12 l6">
                         <input 
                             id="form-name-add"
@@ -91,4 +91,4 @@ class addProduct extends Component {
     }
 }
 
-export default addProduct;
+export default addProduct
