@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { setNewToken, toggleNavbar } from '../actions/actions';
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { PropTypes } from 'prop-types'
+import { connect } from 'react-redux'
+import { setNewToken, toggleNavbar } from '../actions/actions'
 
 class login extends Component {
     constructor(props) {
@@ -91,6 +91,7 @@ class login extends Component {
 
 login.propTypes = {
   setNewToken: PropTypes.func,
+  toggleNavbar: PropTYpes.func
 }
 
 const mapDispatchToProps = dispatch => {
