@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { toggleSidebar, toggleNavbar, setNewToken } from '../actions/actions';
-import { Link, Redirect } from 'react-router-dom';
+import React, { Component } from 'react'
+import { PropTypes } from 'prop-types'
+import { connect } from 'react-redux'
+import { toggleSidebar, toggleNavbar, setNewToken } from '../actions/actions'
+import { Link, Redirect } from 'react-router-dom'
 
-import Sidebar from './sidebar';
+import Sidebar from './sidebar'
 
 class navbar extends Component {
     constructor(props) {
@@ -13,8 +13,8 @@ class navbar extends Component {
             login: false,
             authToken: null
         }
-        this.handleSidebar = this.handleSidebar.bind(this);
-        this.handleNavbar = this.handleNavbar.bind(this);
+        this.handleSidebar = this.handleSidebar.bind(this)
+        this.handleNavbar = this.handleNavbar.bind(this)
     }
 
     componentDidMount() {
@@ -27,12 +27,6 @@ class navbar extends Component {
         this.props.toggleSidebar()
     }
 
-    /*shouldComponentUpdate(){
-        if(this.state.authToken === null) {
-            return true
-        }
-    }*/
-
     handleNavbar() {
         console.log('handleNavbar hola')
         this.props.setNewToken(null)
@@ -42,14 +36,14 @@ class navbar extends Component {
         console.log('navbar authToken ', this.props.authToken)
         const navbar = this.props.authToken ? 
             <nav>
-                <div className="nav-wrapper">
-                    <a href="#" className="brand-logo center">Vidflix</a>
+                <div className="">
+                    <a href="#" className="">Vidflix</a>
 
-                    <ul id="nav-mobile" className="left hide-on-sm-and-down">
+                    <ul className="">
                         <li onClick={ this.handleSidebar } style={{fontSize:"30px", cursor:"pointer"}}>&#9776;</li>
                     </ul>
 
-                    <ul id="nav-mobile" className="right hide-on-sm-and-down">
+                    <ul className="">
                         <li><Link to={'/'} >Browse</Link></li>
                         <li><Link to={'/'}onClick={ this.handleNavbar }>Logout</Link></li>
                     </ul>
@@ -57,36 +51,6 @@ class navbar extends Component {
             </nav>
         :
             ''
-
-        const navbar2 = () => {/*  
-            if( this.props.toggleNavItemsValue ) {
-                return <nav>
-                        <div className="nav-wrapper">
-                            <a href="#" className="brand-logo center">Vidflix</a>
-
-                            <ul id="nav-mobile" className="left hide-on-sm-and-down">
-                                <li onClick={ this.handleSidebar } style={{fontSize:"30px", cursor:"pointer"}}>&#9776;</li>
-                            </ul>
-
-                            <ul id="nav-mobile" className="right hide-on-sm-and-down">
-                                <li><Link to={'/'} >Browse</Link></li>
-                                <li><Link to={'/'}onClick={ this.handleNavbar }>Logout</Link></li>
-                            </ul>
-                        </div>
-                </nav>
-            }
-            if( !this.props.toggleNavItemsValue ) {
-                return <nav>
-                        <div className="nav-wrapper">
-                            <a href="#" className="brand-logo center">Vidflix</a>
-                            <ul id="nav-mobile" className="right hide-on-sm-and-down">
-                                <Link to={'/'} onClick={ this.handleNavbar } >Login</Link>
-                            </ul>
-                        </div>
-                </nav> 
-            }
-        */}
-
         
         return (
             <div>
@@ -98,7 +62,9 @@ class navbar extends Component {
 }
 
 navbar.propTypes = {
-  authToken: PropTypes.string
+  authToken: PropTypes.string,
+    toggleSidebarValue: PropTypes.
+    toggleNavItemsValue: PropTypes.
 }
 
 const mapStateToProps = state => ({
