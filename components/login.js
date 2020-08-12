@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import axios from 'axios'
-import { Link } from 'react-router-dom'
-import { PropTypes } from 'prop-types'
-import { connect } from 'react-redux'
-import { setNewToken, toggleNavbar } from '../actions/actions'
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
+import { setNewToken, toggleNavbar } from '../actions/actions';
 
 class login extends Component {
     constructor(props) {
@@ -54,7 +54,7 @@ class login extends Component {
     render() {
         return (
             <div className="cover-background">
-                <div className="wrapper container login">
+                <div className="wrapper container ">
                     <h4>Login</h4>
                     <form onSubmit={ this.onSubmit } className="input-field">
                         <div className="col s12 l6">
@@ -76,9 +76,9 @@ class login extends Component {
                             <button id="button" className="btn">GO</button>
                         </div>
 
-                        <div id="register-msg" className="center">Sign Up and See What's is Next!</div>
+                        <div id="register-msg" className="">Sign Up and See What's is Next!</div>
                         <div className="center-align">
-                            <button id="button" className="btn register-btn">
+                            <button id="button" className="btn ">
                                 <Link to={'/register'} >Register</Link>            
                             </button>
                         </div>
@@ -91,7 +91,6 @@ class login extends Component {
 
 login.propTypes = {
   setNewToken: PropTypes.func,
-  toggleNavbar: PropTYpes.func
 }
 
 const mapDispatchToProps = dispatch => {

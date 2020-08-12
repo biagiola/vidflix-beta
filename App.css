@@ -9,7 +9,7 @@ h6 {
   margin: 0 auto;
 }
 h4 {
-  margin-top: 0px;
+  margin: 0px 0px;
 }
 ::placeholder {
   color: white
@@ -21,6 +21,22 @@ h4 {
 .nav-wrapper {
   background-color: #E50914;
 }
+ul {
+  display: inline-block;
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  padding: 5px;
+}
+.nav-left-items > li {
+  display: inline-block;
+  background-color: blue;
+}
+
 .container {
   margin-top: 3.5em;
 }

@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { PropTypes } from 'prop-types'
-import { connect } from 'react-redux'
-import { toggleSidebar, toggleNavbar, setNewToken } from '../actions/actions'
-import { Link, Redirect } from 'react-router-dom'
+import React, { Component } from 'react';
+import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
+import { toggleSidebar, toggleNavbar, setNewToken } from '../actions/actions';
+import { Link, Redirect } from 'react-router-dom';
 
-import Sidebar from './sidebar'
+import Sidebar from './sidebar';
 
 class navbar extends Component {
     constructor(props) {
@@ -13,8 +13,8 @@ class navbar extends Component {
             login: false,
             authToken: null
         }
-        this.handleSidebar = this.handleSidebar.bind(this)
-        this.handleNavbar = this.handleNavbar.bind(this)
+        this.handleSidebar = this.handleSidebar.bind(this);
+        this.handleNavbar = this.handleNavbar.bind(this);
     }
 
     componentDidMount() {
@@ -34,24 +34,28 @@ class navbar extends Component {
     
     render() {
         console.log('navbar authToken ', this.props.authToken)
-        const navbar = this.props.authToken ? 
+        const navbar = this.props.authToken === null ?
             <nav>
-                <div className="">
-                    <a href="#" className="">Vidflix</a>
-
+                <div className="nav-wrapper">
                     <ul className="">
                         <li onClick={ this.handleSidebar } style={{fontSize:"30px", cursor:"pointer"}}>&#9776;</li>
                     </ul>
 
-                    <ul className="">
+                    <ul>
+                        <li>
+                            <a href="#" className="brand-logo center">Vidflix</a>
+                        </li>
+                    </ul>
+
+                    <ul className="nav-left-items">
                         <li><Link to={'/'} >Browse</Link></li>
                         <li><Link to={'/'}onClick={ this.handleNavbar }>Logout</Link></li>
                     </ul>
                 </div>
             </nav>
-        :
-            ''
-        
+            : 
+                ''
+
         return (
             <div>
                 <Sidebar/>
@@ -62,9 +66,7 @@ class navbar extends Component {
 }
 
 navbar.propTypes = {
-  authToken: PropTypes.string,
-    toggleSidebarValue: PropTypes.
-    toggleNavItemsValue: PropTypes.
+  authToken: PropTypes.string
 }
 
 const mapStateToProps = state => ({

@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import { Link } from 'react-router-dom'
-import { PropTypes } from 'prop-types'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
 
 class Products extends Component {
     constructor(props) {
@@ -11,8 +11,8 @@ class Products extends Component {
             product: '',
             modal: false
         };
-        this.deleteProduct = this.deleteProduct.bind(this)
-        this.toggleModal = this.toggleModal.bind(this)
+        this.deleteProduct = this.deleteProduct.bind(this);
+        this.toggleModal = this.toggleModal.bind(this);
     }
     
     componentDidMount() {
@@ -69,24 +69,24 @@ class Products extends Component {
         return (
             <div className="wrapper container">
 
-                <div id="" className="">
+                <div id="productData" className="productContainer">
                     <img 
-                        id=""
+                        id="big-img"
                         src={`http://localhost:5000/uploads/${imageName}.jpg` } 
                         width="370"                        
                         height="556"
                         alt={`${this.state.product.name}`}>
                     </img>
-                    <div className="">
+                    <div className="descriptionContainer">
                         <h4 className="">{this.state.product.name}</h4>
                         <h4 className="">{this.state.product.price}$</h4>
                         <h4>Synapsis</h4>
-                        <p id="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p id="synapsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                 </div>
                 
-                <div id="">
-                    <Link to={ '/products'} className="">Back</Link>
+                <div id="productBtns">
+                    <Link to={ '/products'} className="btn">Back</Link>
                     { deleteButton }
                 </div>
                 
@@ -106,4 +106,4 @@ const mapStateToProps = state => ({
     authToken: state.casa.authToken
 })
 
-export default connect(mapStateToProps, null)(Products)
+export default connect(mapStateToProps, null)(Products);

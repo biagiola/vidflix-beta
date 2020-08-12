@@ -1,6 +1,46 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link, Redirect } from 'react-router-dom'
+import Slider from './NetflixSlider'
+
+const movies = [
+    {
+      id: 1,
+      image: '/images/slide1.jpg',
+      imageBg: '/images/slide1b.webp',
+      title: '1983'
+    },
+    {
+      id: 2,
+      image: '/images/slide2.jpg',
+      imageBg: '/images/slide2b.webp',
+      title: 'Russian doll'
+    },
+    {
+      id: 3,
+      image: '/images/slide3.jpg',
+      imageBg: '/images/slide3b.webp',
+      title: 'The rain',
+    },
+    {
+      id: 4,
+      image: '/images/slide4.jpg',
+      imageBg: '/images/slide4b.webp',
+      title: 'Sex education'
+    },
+    {
+      id: 5,
+      image: '/images/slide5.jpg',
+      imageBg: '/images/slide5b.webp',
+      title: 'Elite'
+    },
+    {
+      id: 6,
+      image: '/images/slide6.jpg',
+      imageBg: '/images/slide6b.webp',
+      title: 'Black mirror'
+    }
+  ];
 
 class Products extends Component {
     constructor(props) {
@@ -22,44 +62,26 @@ class Products extends Component {
                     })
                 //}
             })
-        
         //console.log('componentDidMount, this.state.products', this.state.products)
     }
 
     render() {
-        //console.log('render, this.state.products', this.state.products)
-        const titles = 
-        (this.state.products.length > 0) ? 
-             this.state.products.map( current => {
-                 //console.log(current.productImage.slice(23, -4))
-                 return (<div id="">
-                            <div className="">
-                                <img src={`http://localhost:5000/uploads/${current.productImage.slice(23, -4)}.jpg` } width="200px" height="290px"  alt="An awesome picture"></img>
-                                <div className="" key={current} >
-                                    <h4 className="">Fantasy</h4>
-                                    <h4 className="">2020</h4><br/>
-                                    <Link to={`/${current._id}`} className="">Details</Link>  
-                                </div>
-                                <div className="title-card">
-                                    <h4 className="">{current.name}</h4>
-                                </div>
-                            </div>
-                        </div>
-                )
-            }
-        ) : ''
-
         //console.log('render, titles', titles)        
         return (
             <div className="wrapper container">
-                <h4 className="">Lasted Movies</h4>
+                <h4 className="center">Lasted Movies</h4>
 
-                <Link to={'/add'} className="">add</Link>  
-                <Link to={'/'} className="" >logout</Link>  
-
-                <div id="">
-                    { titles }
+                <div className="app">
+                    <Slider>
+                        {movies.map(movie => (
+                            <Slider.Item movie={movie} key={movie.id}>item1</Slider.Item>
+                        ))}
+                    </Slider>
                 </div>
+
+                <Link to={'/add'} className="btn">add</Link>  
+                <Link to={'/'} className="btn" >logout</Link>  
+
                 
             </div>
         )
