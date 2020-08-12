@@ -68,20 +68,22 @@ class Products extends Component {
     render() {
         //console.log('render, titles', titles)        
         return (
-            <div className="wrapper container">
-                <h4 className="center">Lasted Movies</h4>
-
+            <div className="wrapper">
                 <div className="app">
+                    <h4 className="title-slider">Lasted Movies</h4>
+                    <Slider>
+                        {movies.map(movie => (
+                            <Slider.Item movie={movie} key={movie.id}>item1</Slider.Item>
+                        ))}
+                    </Slider>
+
+                    <h4 className="title-slider">Coming soon</h4>
                     <Slider>
                         {movies.map(movie => (
                             <Slider.Item movie={movie} key={movie.id}>item1</Slider.Item>
                         ))}
                     </Slider>
                 </div>
-
-                <Link to={'/add'} className="btn">add</Link>  
-                <Link to={'/'} className="btn" >logout</Link>  
-
                 
             </div>
         )

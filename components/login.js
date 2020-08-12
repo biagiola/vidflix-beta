@@ -55,7 +55,7 @@ class login extends Component {
         return (
             <div className="cover-background">
                 <div className="form-login">
-                    <h4>Login</h4>
+                    <h4 className="form-title">Login</h4>
                     <form onSubmit={ this.onSubmit } className="input-field">
                         <input 
                             id="form-email" 
@@ -82,9 +82,9 @@ class login extends Component {
                     </form>     
                 </div>
 
-                <div>
+                <div className="register-brand">
                     <div id="register-msg" className="">Sign Up and See What's is Next!</div>
-                    <Link to={'/register'} className="btn">Register</Link>            
+                    <Link to={'/register'} className="btn btn-register">Register</Link>            
                 </div>
             </div>
         )
