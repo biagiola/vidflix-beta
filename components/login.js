@@ -54,35 +54,37 @@ class login extends Component {
     render() {
         return (
             <div className="cover-background">
-                <div className="wrapper container ">
+                <div className="form-login">
                     <h4>Login</h4>
                     <form onSubmit={ this.onSubmit } className="input-field">
-                        <div className="col s12 l6">
-                            <input 
-                                id="form-email" 
-                                className=""
-                                type="text"
-                                placeholder="Email..."
-                                value={ this.state.email } 
-                                onChange={ this.changeEmail }/>
-                            <br/>
-                            <input 
-                                id="form-password" 
-                                type="text"
-                                placeholder="Password..."
-                                value={ this.state.password } 
-                                onChange={ this.changePassword }/>
-                            <br/>
-                            <button id="button" className="btn">GO</button>
-                        </div>
-
-                        <div id="register-msg" className="">Sign Up and See What's is Next!</div>
-                        <div className="center-align">
-                            <button id="button" className="btn ">
-                                <Link to={'/register'} >Register</Link>            
-                            </button>
-                        </div>
+                        <input 
+                            id="form-email" 
+                            className="form-group"
+                            type="text"
+                            placeholder="Email..."
+                            value={ this.state.email } 
+                            onChange={ this.changeEmail }/>
+                        <br/>
+                        <input 
+                            id="form-password" 
+                            className="form-group"
+                            type="text"
+                            placeholder="Password..."
+                            value={ this.state.password } 
+                            onChange={ this.changePassword }/>
+                        <br/>
+                        <input
+                            id="form-submit-login" 
+                            className="btn"
+                            type="submit"
+                            value="GO"
+                        />
                     </form>     
+                </div>
+
+                <div>
+                    <div id="register-msg" className="">Sign Up and See What's is Next!</div>
+                    <Link to={'/register'} className="btn">Register</Link>            
                 </div>
             </div>
         )
