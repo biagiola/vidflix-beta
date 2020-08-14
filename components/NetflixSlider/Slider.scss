@@ -5,7 +5,10 @@
 
   &__container {
     display: flex;
-    padding: 0 55px;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 25px;
+    padding-right: 55px;
     transition: transform 300ms ease 100ms;
     z-index: 3;
     width: 100%;
