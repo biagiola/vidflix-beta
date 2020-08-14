@@ -37,8 +37,10 @@ class navbar extends Component {
         const navbar = this.props.authToken === null ?
             <nav>
                 <div className="nav-wrapper">
-                    <ul className="">
-                        <li onClick={ this.handleSidebar } style={{fontSize:"30px", cursor:"pointer"}}>&#9776;</li>
+                    <ul id="burger">
+                        <li  onClick={ this.handleSidebar }>
+                            <a>&#9776;</a>
+                        </li>
                     </ul>
 
                     <ul>
