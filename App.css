@@ -16,17 +16,18 @@ h4 {
 ::placeholder {
   color: white
 }
+ul {
+  display: inline-block;
+  padding: 0;
+  cursor: pointer;
+}
+li {
+  list-style-type: none;
+}
 
 /* navbar */
 .nav-wrapper {
   background-color: #E50914;
-}
-ul {
-  display: inline-block;
-  padding: 0;
-}
-li {
-  list-style-type: none;
 }
 .nav-left-items > li {
   display: inline-block;
@@ -82,7 +83,9 @@ li {
 
 /* products */
 .title-slider {
-  margin-left: 3rem;
+  font-size: 1.3rem;
+  font-weight: lighter;
+  margin-left: 1.5rem;
   margin-top: 1rem;
 }
 input {
@@ -117,17 +120,16 @@ input:focus::-webkit-input-placeholder { color:transparent;}
 input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
 input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
 input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
-
- /* Input focus colour */
- input:-webkit-autofill,
- input:-webkit-autofill:hover, 
- input:-webkit-autofill:focus, 
- input:-webkit-autofill:active  {
-   box-shadow: 0 0 0 30px rgb(0,0,0,0.8) inset !important;
-   -webkit-box-shadow: 0 0 0 30px rgb(0,0,0,0.8) inset !important;
-   -webkit-text-fill-color: white !important;
- }
- input:focus {
+/* Input focus colour */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  box-shadow: 0 0 0 30px rgb(0,0,0,0.8) inset !important;
+  -webkit-box-shadow: 0 0 0 30px rgb(0,0,0,0.8) inset !important;
+  -webkit-text-fill-color: white !important;
+}
+input:focus {
   border-bottom: 1px solid red !important;
   box-shadow: 0 1px 0 0 red !important;
   background-color: transparent;
