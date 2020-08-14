@@ -2,6 +2,13 @@ html {
   background-color: #141414;
   color: white;
 }
+body {
+  background-image: radial-gradient(#111212 40%, #161616 , black);
+  height: 100%;
+}
+html, body {
+  height: 100%;
+}
 a {
   text-decoration: none;
   color: white;
@@ -34,24 +41,26 @@ li {
   padding-top: 2.5rem;
   margin: 0px 25px;
 }
+.form-buttons {
+  margin-top: 1rem;
+}
 
 /* navbar */
 .nav-wrapper {
   background-color: #E50914;
+  font-size: 0.8em;
+}
+.nav-wrapper > ul > li > a {
+  transition: 0.3s all;
+}
+.nav-wrapper > ul > li > a:hover {
+  color: #141414;
+}
+.nav-left-items {
+  float: right;
 }
 .nav-left-items > li {
   display: inline-block;
-  background-color: blue;
-}
-
-#brand-msg {
-  font-size: 3rem;
-  padding: 3rem 1rem 0.9rem;
-  text-align: center;
-}
-
-.form-buttons {
-  margin-top: 1rem;
 }
 
 /* login */
@@ -69,6 +78,15 @@ li {
 }
 input#form-submit-login {
   padding: 7px 10px !important;
+  font-size: 1rem;
+}
+input#form-submit-login:hover {
+  transform: scale(1.1);
+}
+#brand-msg {
+  font-size: 3rem;
+  padding: 3rem 1rem 0.9rem;
+  text-align: center;
 }
 
 /* register */
@@ -92,8 +110,14 @@ input#form-submit-register {
   font-weight: lighter;
   margin-left: 1.5rem;
   margin-top: 1rem;
+  cursor: default;
 }
-
+.card {
+  background-color: rgb(15, 15, 15);
+  box-shadow: 10px 10px 15px -9px rgba(0,0,0,0.75);
+  margin: 5px;
+  padding: 2px;
+}
 
 /* Buttons */
 .btn {
