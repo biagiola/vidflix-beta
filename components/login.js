@@ -53,9 +53,8 @@ class login extends Component {
 
     render() {
         return (
-            <div className="cover-background">
+            <div className="container">
                 <div className="form-login">
-                    <h4 className="form-title">Login</h4>
                     <form onSubmit={ this.onSubmit } className="input-field">
                         <input 
                             id="form-email" 
@@ -73,18 +72,21 @@ class login extends Component {
                             value={ this.state.password } 
                             onChange={ this.changePassword }/>
                         <br/>
-                        <input
-                            id="form-submit-login" 
-                            className="btn"
-                            type="submit"
-                            value="GO"
-                        />
+                        <div className="form-buttons">
+                            <input
+                                id="form-submit-login"
+                                className="btn"
+                                type="submit"
+                                value="Login" />
+                        </div>
                     </form>     
                 </div>
 
                 <div className="register-brand">
-                    <div id="register-msg" className="">Sign Up and See What's is Next!</div>
-                    <Link to={'/register'} className="btn btn-register">Register</Link>            
+                    <div id="brand-msg">Sign Up and See What is Next!</div>
+                    <div className="btn btn-register">
+                        <Link to={'/register'} >Register</Link>            
+                    </div>
                 </div>
             </div>
         )
