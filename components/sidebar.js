@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { toggleSidebar } from '../actions/actions';
 
 class Sidebar extends Component {
@@ -20,7 +21,7 @@ class Sidebar extends Component {
         let scope;
         //console.log('this.props.toggleSidebarValue',this.props.toggleSidebarValue)
         if (this.props.toggleSidebarValue) {
-            scope = "250px";
+            scope = "120px";
         } else {
             scope = "0px"
         }
@@ -28,10 +29,10 @@ class Sidebar extends Component {
         return (
             <div id="mySidenav" className="sidebar" style={{ width: scope }}>
                 <h6 href="javascript:void(0)" className="closebtn" onClick={ this.toggleSidebar }>&times;</h6>
-                <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Clients</a>
-                <a href="#">Contact</a>
+                <Link to={'/account'}>Account</Link>
+                <Link to={'/products'}>Products</Link>
+                <Link to={'/orders'}>Orders</Link>
+                <Link to={'/'}>Contact</Link>
             </div>
         );
     }
