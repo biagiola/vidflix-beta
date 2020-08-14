@@ -4,8 +4,13 @@ html {
 }
 a {
   text-decoration: none;
-  padding: 5px;
   color: white;
+  margin: 7px 5px;
+  padding: 5px 5px !important;
+}
+input {
+  margin: 5px;
+  padding: 5px;
 }
 h6 {
   margin: 0 auto;
@@ -24,6 +29,11 @@ ul {
 li {
   list-style-type: none;
 }
+.container {
+  margin-top: 2.5em;
+  padding-top: 2.5rem;
+  margin: 0px 25px;
+}
 
 /* navbar */
 .nav-wrapper {
@@ -34,15 +44,21 @@ li {
   background-color: blue;
 }
 
-.container {
-  margin-top: 2.5em;
-  margin: 0px 25px;
+#brand-msg {
+  font-size: 3rem;
+  padding: 3rem 1rem 0.9rem;
+  text-align: center;
+}
+
+.form-buttons {
+  margin-top: 1rem;
 }
 
 /* login */
 .form-login {
-  margin-top: 2.5rem;
+  /*margin-top: 2.5rem;*/
   text-align: center;
+  margin-bottom: 2em;
 }
 #form-email, #form-password {
   width: 15rem;
@@ -51,31 +67,20 @@ li {
   outline: none;
   box-shadow: 10px 10px 15px -9px rgba(0,0,0,0.75);
 }
-#form-submit-login {
-  color: #fff;
-  background-color: #9b0008;
-  border: 0px;
-  padding: 7px 14px;
-  cursor: pointer;
-  box-shadow: 10px 10px 15px -9px rgba(0,0,0,0.75);
+input#form-submit-login {
+  padding: 7px 10px !important;
 }
-#form-submit-login:hover {
-  background-color: #E50914;
+
+/* register */
+input#form-submit-register {
 }
 .register-brand {
-  margin-top: 2em;
-}
-#register-msg {
-  font-size: 3rem;
-  padding: 3rem 1rem 1rem;
-  text-align: center;
+  /*margin-top: 2em;*/
 }
 .btn-register {
   padding: 12px !important;
-  box-shadow: 10px 10px 15px -9px rgba(0,0,0,0.75);
   width: 8rem;
   margin: 0px auto !important;
-  text-align: center!important;
 }
 .btn-register:hover {
   transform: scale(1.1);
@@ -88,24 +93,25 @@ li {
   margin-left: 1.5rem;
   margin-top: 1rem;
 }
-input {
-  margin: 5px;
-  padding: 5px;
-}
+
 
 /* Buttons */
 .btn {
+  color: #fff;
   background-color: #bd0009;
-  /*display: inline-block;*/
+  box-shadow: 10px 10px 15px -9px rgba(0,0,0,0.75);
+  border: 0px;
   margin-right: 0.5em;
-  padding: 5px;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
   transition: 0.6s all;
+  text-align: center;
 }
 .btn:checked,
 .btn:active,
 .btn:visited,
 .btn:link {
-  background-color: #9b0008;
+  background-color: #bd0009;
 }
 .btn:hover {
   background-color: #E50914;
@@ -130,11 +136,11 @@ input:-webkit-autofill:active  {
   -webkit-text-fill-color: white !important;
 }
 input:focus {
-  border-bottom: 1px solid red !important;
-  box-shadow: 0 1px 0 0 red !important;
+  border-bottom: 1px solid #bd0009 !important;
+  box-shadow: 0 1px 0 0 #bd0009 !important;
   background-color: transparent;
 }
- .input-field [type=text] {
+.input-field [type=text] {
   background-color: black;
   color:white !important;
 }
