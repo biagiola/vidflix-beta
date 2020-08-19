@@ -8,7 +8,6 @@ import Navbar from './components/navbar'
 import Login from './components/login'
 import Register from './components/register'
 import Products from './components/products'
-import Product from './components/product'
 import AddProduct from './components/addProduct'
 import Orders from './components/orders';
 import Users from './components/users'
@@ -24,9 +23,7 @@ function App() {
             <Route path="/products" component={ Products } />
             <Route path="/orders" component={ Orders } />
             <Route path="/add" component={ AddProduct } />
-            <Route path="/:productId" component={ Product } />
             <Route path="/users" component={ Users } />
-            <Route path="/logout" component={ () => <h1>Tschuss</h1> } />
             <Route path="*" component={ () => "404 not found" } />
           </Switch>
       </BrowserRouter> 
