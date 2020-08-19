@@ -3,7 +3,7 @@ html {
   color: white;
 }
 body {
-  background-image: radial-gradient(#111212 40%, #161616 , black);
+  background-image: radial-gradient(#111212 20%, #161616 40%, black 95%);
   height: 100%;
 }
 html, body {
@@ -38,7 +38,7 @@ li {
 }
 .container {
   margin-top: 2.5em;
-  padding-top: 2.5rem;
+  padding-top: 7rem;
   margin: 0px 25px;
 }
 .form-buttons {
