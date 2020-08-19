@@ -1,204 +1,171 @@
 html {
-  background-color: black;
+  background-color: #141414;
   color: white;
 }
+body {
+  background-image: radial-gradient(#111212 40%, #161616 , black);
+  height: 100%;
+}
+html, body {
+  height: 100%;
+}
 a {
+  text-decoration: none;
   color: white;
+  margin: 7px 5px;
+  padding: 5px 5px !important;
+}
+input {
+  margin: 5px;
+  padding: 5px;
 }
 h6 {
   margin: 0 auto;
 }
 h4 {
-  margin-top: 0px;
+  margin: 0px 0px;
 }
 ::placeholder {
   color: white
 }
-.nav-wrapper {
-  background-color: #E50914;
-}
-.title .contenido {
-  margin-top: 1.7em;
-}
-
-/* Image details container */
-.productContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin-top: 1.7em;
-  grid-gap: 0px; 
-  /*background-color: #161616;*/
-  /*margin: 2.4rem ;*/
-}
-.productContainer img {
-  text-align: center;
-  align-self: stretch;
-  justify-self: center;
-}
-.productContainer .card {
-  margin-top: 0px !important;
-  height: inherit;
-}
-#productData {
-  margin-bottom: 0px !important;
-}
-.descriptionContainer {
-  /*padding: 0px 0px 0px;*/
-  text-align: justify;
-  padding: 0em 1em 2em;
-  
-}
-#productBtns {
-  margin: 2em 0;
-}
-
-#content {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 10px;
-  position: absolute;
-}
-
-.card {
-  background-color: #161616;
-  border: 3px solid #161616;
-  transition: 0.2s;
-  box-sizing: content-box;
-  height: 24em;
-}
-
-.card:hover {
-  opacity: 1;
-  border: 3px solid #bd0009;
-  transition: 0.2s;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 0;
-  transition: 0.5s ease;
-  background: rgba(0, 0, 0, 0.8); 
-}
-
-#content .overlay:hover {
-  opacity: 1;
-}
-
-.contenido {
-  position: relative;
-  text-align: center;
-  top: 15%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
-  font-size: 18px;
-  cursor: default;
-}
-
-
-/* Buttons */
-.view-details-btn {
-  position: static;
-  font-weight: bold;
-  font-size: 1.5em;
-  text-align: center;
-  margin: 45px 2em;
-  background-color: #bd0009;
+ul {
+  display: inline-block;
+  padding: 0;
   cursor: pointer;
 }
-
-.btn:hover {
-  background-color: #9b0008;
+li {
+  list-style-type: none;
+}
+.container {
+  margin-top: 2.5em;
+  padding-top: 7rem;
+  margin: 0px 25px;
+}
+.form-buttons {
+  margin-top: 1rem;
 }
 
-.btn {
-  background-color: #bd0009;
+/* navbar */
+.nav-wrapper {
+  background-color: #E50914;
+  font-size: 0.8em;
+}
+.nav-wrapper > ul > li > a {
+  transition: 0.3s all;
+}
+.nav-wrapper > ul > li > a:hover {
+  color: #141414;
+}
+.nav-left-items {
+  float: right;
+}
+.nav-left-items > li {
   display: inline-block;
-  margin-right: 0.5em;
 }
 
-.register-btn {
-  padding: 10px 30px 45px;
-  font-size: 1.0rem;
-  transition: 0.3s;
+/* login */
+.form-login {
+  /*margin-top: 2.5rem;*/
+  text-align: center;
+  margin-bottom: 2em;
 }
-.register-btn:hover {
+#form-email, #form-password {
+  width: 15rem;
+  border: 0px solid grey;
+  padding: 10px;
+  outline: none;
+  box-shadow: 10px 10px 15px -9px rgba(0,0,0,0.75);
+}
+input#form-submit-login {
+  padding: 7px 10px !important;
+  font-size: 1rem;
+}
+input#form-submit-login:hover {
   transform: scale(1.1);
-  transition: 0.3s;
 }
-
-#register-msg {
+#brand-msg {
   font-size: 3rem;
-  padding: 3rem 1rem 1rem;
+  padding: 3rem 1rem 0.9rem;
+  text-align: center;
 }
 
-#data {
-  animation: fadeInAnimation ease 1s;
-  animation-iteration-count: 1; 
-  animation-fill-mode: forwards;
+/* register */
+input#form-submit-register {
+}
+.register-brand {
+  /*margin-top: 2em;*/
+}
+.btn-register {
+  padding: 12px !important;
+  width: 8rem;
+  margin: 0px auto !important;
+}
+.btn-register:hover {
+  transform: scale(1.1);
 }
 
-@keyframes fadeInAnimation { 
-  0% { 
-      opacity: 0; 
-  } 
-  100% { 
-      opacity: 1; 
-   } 
+/* products */
+.title-slider {
+  font-size: 1.3rem;
+  font-weight: lighter;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+  cursor: default;
+}
+.card {
+  background-color: rgb(15, 15, 15);
+  box-shadow: 10px 10px 15px -9px rgba(0,0,0,0.75);
+  margin: 5px;
+  padding: 2px;
 }
 
-
-
- /* Input focus colour */
- input:-webkit-autofill,
- input:-webkit-autofill:hover, 
- input:-webkit-autofill:focus, 
- input:-webkit-autofill:active  {
-     -webkit-box-shadow: 0 0 0 30px black inset !important;
-     -webkit-text-fill-color: white !important;
- }
- input:focus {
-  border-bottom: 1px solid red !important;
-  box-shadow: 0 1px 0 0 red !important;
-  background-color: black;
+/* Buttons */
+.btn {
+  color: #fff;
+  background-color: #bd0009;
+  box-shadow: 10px 10px 15px -9px rgba(0,0,0,0.75);
+  border: 0px;
+  margin-right: 0.5em;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  transition: 0.6s all;
+  text-align: center;
 }
- .input-field [type=text] {
+.btn:checked,
+.btn:active,
+.btn:visited,
+.btn:link {
+  background-color: #bd0009;
+}
+.btn:hover {
+  background-color: #E50914;
+}
+
+/* fade out the placeholder */
+input::-webkit-input-placeholder { -webkit-transition:.5s;}
+input:-moz-input-placeholder { -moz-transition:.5s;}
+input::-moz-input-placeholder { -moz-transition:.5s;}
+input:-ms-input-placeholder { -ms-transition:.5s;}
+input:focus::-webkit-input-placeholder { color:transparent;}
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+/* Input focus colour */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  box-shadow: 0 0 0 30px rgb(0,0,0,0.8) inset !important;
+  -webkit-box-shadow: 0 0 0 30px rgb(0,0,0,0.8) inset !important;
+  -webkit-text-fill-color: white !important;
+}
+input:focus {
+  border-bottom: 1px solid #bd0009 !important;
+  box-shadow: 0 1px 0 0 #bd0009 !important;
+  background-color: transparent;
+}
+.input-field [type=text] {
   background-color: black;
   color:white !important;
 }
-
-/* React transition group classes */
-.wrapper {
-  position: absolute;
-  left: 0;
-  right: 0;
-}  
-/* simple - enter transition 300ms, exit 150ms */
-.fade-appear,
-.fade-enter {
-    opacity: 0;
-    z-index: 1;
-}
-.fade-appear-active,
-.fade-enter.fade-enter-active {
-    opacity: 1;
-    transition: opacity 800ms linear ;
-}
-.fade-exit {
-    opacity: 1;
-}
-.fade-exit.fade-exit-active {
-    opacity: 0;
-    transition: opacity 800ms linear;
-}
-
-
-
-
 
