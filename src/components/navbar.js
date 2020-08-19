@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { toggleSidebar, toggleNavbar } from '../actions/actions';
-import { Link, Redirect } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
-import Sidebar from './sidebar';
+import { connect } from 'react-redux'
+import { PropTypes } from 'prop-types'
 
-class navbar extends Component {
+import { toggleSidebar, toggleNavbar, setNewToken } from '../actions/actions'
+
+import Sidebar from './sidebar'
+
+class Navbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
             login: false,
             authToken: null
         }
-        this.handleSidebar = this.handleSidebar.bind(this);
-        this.handleNavbar = this.handleNavbar.bind(this);
+        
     }
 
     componentDidMount() {
@@ -23,45 +24,40 @@ class navbar extends Component {
         })
     }
 
-    handleSidebar() {
+    handleSidebar = () => {
         this.props.toggleSidebar()
     }
 
-    handleNavbar() {
-        this.setState({
-            authToken: null
-        })
-        this.props.toggleNavbar()
-        //this.props.history.push('/')
+    handleNavbar = () => {
+        this.props.setNewToken(null)
     }
     
     render() {
         console.log('navbar authToken ', this.props.authToken)
-        const navbar = this.props.authToken !== null && !this.props.toggleNavItemsValue ? 
+        const navbar = this.props.authToken !== null ?
             <nav>
                 <div className="nav-wrapper">
-                    <a href="#" className="brand-logo center">Vidflix</a>
-                    <ul id="nav-mobile" className="left hide-on-sm-and-down">
-                        <li onClick={ this.handleSidebar } style={{fontSize:"30px", cursor:"pointer"}}>&#9776;</li>
+                    <ul id="burger">
+                        <li  onClick={ this.handleSidebar }>
+                            <a>&#9776;</a>
+                        </li>
                     </ul>
-                    <ul id="nav-mobile" className="right hide-on-sm-and-down">
+
+                    <ul>
+                        <li>
+                            <a href="#" className="brand-logo center"></a>
+                        </li>
+                    </ul>
+
+                    <ul className="nav-left-items">
                         <li><Link to={'/'} >Browse</Link></li>
-                        <li><Link to={'/'} onClick={ this.handleNavbar }>Logout</Link></li>
+                        <li><Link to={'/'}onClick={ this.handleNavbar }>Logout</Link></li>
                     </ul>
-                    
                 </div>
             </nav>
-        :
-            <nav>
-                <div className="nav-wrapper">
-                    <a href="#" className="brand-logo center">Vidflix</a>
-                    <ul id="nav-mobile" className="right hide-on-sm-and-down">
-                        <Link to={'/'} className>Login</Link>
-                    </ul>
-                </div>
-            </nav> 
+            : 
+                ''
 
-        
         return (
             <div>
                 <Sidebar/>
@@ -71,21 +67,22 @@ class navbar extends Component {
     }
 }
 
-navbar.propTypes = {
+Navbar.propTypes = {
   authToken: PropTypes.string
 }
 
 const mapStateToProps = state => ({
-    authToken: state.casa.authToken,
-    toggleSidebarValue: state.casa.toggleSidebarValue,
-    toggleNavItemsValue: state.casa.toggleNavItemsValue
+    authToken: state.all.authToken,
+    toggleSidebarValue: state.all.toggleSidebarValue,
+    toggleNavItemsValue: state.all.toggleNavItemsValue
 })
 
 const mapDispatchToProps = dispatch => {
     return {
         toggleSidebar: () => dispatch(toggleSidebar()),
-        toggleNavbar: () => dispatch(toggleNavbar())
+        toggleNavbar: () => dispatch(toggleNavbar()),
+        setNewToken: token => dispatch(setNewToken(token))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(navbar)
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

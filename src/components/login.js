@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { setNewToken } from '../actions/actions';
+import { Link } from 'react-router-dom'
+
+import { connect } from 'react-redux'
+import { PropTypes } from 'prop-types'
+
+import axios from 'axios'
+
+import { setNewToken, toggleNavbar } from '../actions/actions'
 
 class login extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             email: '',
             password: '',
@@ -42,21 +45,23 @@ class login extends Component {
                 console.log(':D res: ', res)
                 this.props.setNewToken(res.data.token)
                 this.props.history.push('/products')
-            })
+            }).then (
+                this.props.toggleNavbar()
+            )
             .catch( error => {
-                console.log(error + " :'(");
+                console.log(error + " :'(")
             })
+        
     }
 
     render() {
         return (
-            <div className="wrapper container">
-                <h4>Login</h4>
-                <form onSubmit={ this.onSubmit } className="input-field">
-                    <div className="col s12 l6">
+            <div className="container">
+                <div className="form-login">
+                    <form onSubmit={ this.onSubmit } className="input-field">
                         <input 
                             id="form-email" 
-                            className=""
+                            className="form-group"
                             type="text"
                             placeholder="Email..."
                             value={ this.state.email } 
@@ -64,21 +69,28 @@ class login extends Component {
                         <br/>
                         <input 
                             id="form-password" 
+                            className="form-group"
                             type="text"
                             placeholder="Password..."
                             value={ this.state.password } 
                             onChange={ this.changePassword }/>
                         <br/>
-                        <button id="button" className="btn">GO</button>
-                    </div>
+                        <div className="form-buttons">
+                            <input
+                                id="form-submit-login"
+                                className="btn"
+                                type="submit"
+                                value="Login" />
+                        </div>
+                    </form>     
+                </div>
 
-                    <div id="register-msg" className="center">Sign Up and See What's is Next!</div>
-                    <div className="center-align">
-                        <button id="button" className="btn register-btn">
-                            <Link to={'/register'} >Register</Link>            
-                        </button>
+                <div className="register-brand">
+                    <div id="brand-msg">Sign Up and See What is Next!</div>
+                    <div className="btn btn-register">
+                        <Link to={'/register'} >Register</Link>            
                     </div>
-                </form>     
+                </div>
             </div>
         )
     }
@@ -90,7 +102,8 @@ login.propTypes = {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setNewToken: token => dispatch(setNewToken(token))
+    setNewToken: token => dispatch(setNewToken(token)),
+    toggleNavbar: token => dispatch(toggleNavbar(token))
   }
 }
 
