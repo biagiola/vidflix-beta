@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Link, Redirect } from 'react-router-dom'
+import React from 'react'
 import Slider from './NetflixSlider'
 
 const movies = [
@@ -40,43 +38,22 @@ const movies = [
       imageBg: '/images/slide6b.webp',
       title: 'Black mirror'
     }
-  ];
+]
 
-class Products extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            products: []
-        };
-        //this.onChangeLenguage = this.onChangeLenguage.bind(this);
-    }
-    
-    componentDidMount() {
-        // get the lenguages before the render
-        axios.get('http://localhost:5000/products/')
-            .then( res => {
-                //if( res.data.products > 0 ) {
-                    console.log('entro', res)
-                    this.setState({
-                        products: res.data.products
-                    })
-                //}
-            })
-        //console.log('componentDidMount, this.state.products', this.state.products)
-    }
-
-    render() {
-        //console.log('render, titles', titles)        
-        return (
-            <div className="wrapper">
-                <div className="app">
+export default function Products() {
+    return (
+        <div className="">
+            <div className="app">
+                <div className="card">
                     <h4 className="title-slider">Lasted Movies</h4>
                     <Slider>
                         {movies.map(movie => (
                             <Slider.Item movie={movie} key={movie.id}>item1</Slider.Item>
                         ))}
                     </Slider>
+                </div>
 
+                <div className="card">
                     <h4 className="title-slider">Coming soon</h4>
                     <Slider>
                         {movies.map(movie => (
@@ -84,10 +61,7 @@ class Products extends Component {
                         ))}
                     </Slider>
                 </div>
-                
             </div>
-        )
-    }
+        </div>
+    )
 }
-
-export default Products;

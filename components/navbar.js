@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
-import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { toggleSidebar, toggleNavbar, setNewToken } from '../actions/actions';
-import { Link, Redirect } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
-import Sidebar from './sidebar';
+import { connect } from 'react-redux'
+import { PropTypes } from 'prop-types'
 
-class navbar extends Component {
+import { toggleSidebar, toggleNavbar, setNewToken } from '../actions/actions'
+
+import Sidebar from './sidebar'
+
+class Navbar extends Component {
     constructor(props) {
         super(props);
         this.state = {
             login: false,
             authToken: null
         }
-        this.handleSidebar = this.handleSidebar.bind(this);
-        this.handleNavbar = this.handleNavbar.bind(this);
+        
     }
 
     componentDidMount() {
@@ -23,18 +24,17 @@ class navbar extends Component {
         })
     }
 
-    handleSidebar() {
+    handleSidebar = () => {
         this.props.toggleSidebar()
     }
 
-    handleNavbar() {
-        console.log('handleNavbar hola')
+    handleNavbar = () => {
         this.props.setNewToken(null)
     }
     
     render() {
         console.log('navbar authToken ', this.props.authToken)
-        const navbar = this.props.authToken === null ?
+        const navbar = this.props.authToken !== null ?
             <nav>
                 <div className="nav-wrapper">
                     <ul id="burger">
@@ -45,7 +45,7 @@ class navbar extends Component {
 
                     <ul>
                         <li>
-                            <a href="#" className="brand-logo center">Vidflix</a>
+                            <a href="#" className="brand-logo center"></a>
                         </li>
                     </ul>
 
@@ -67,22 +67,22 @@ class navbar extends Component {
     }
 }
 
-navbar.propTypes = {
+Navbar.propTypes = {
   authToken: PropTypes.string
 }
 
 const mapStateToProps = state => ({
-    authToken: state.casa.authToken,
-    toggleSidebarValue: state.casa.toggleSidebarValue,
-    toggleNavItemsValue: state.casa.toggleNavItemsValue
+    authToken: state.all.authToken,
+    toggleSidebarValue: state.all.toggleSidebarValue,
+    toggleNavItemsValue: state.all.toggleNavItemsValue
 })
 
 const mapDispatchToProps = dispatch => {
     return {
         toggleSidebar: () => dispatch(toggleSidebar()),
         toggleNavbar: () => dispatch(toggleNavbar()),
-        setNewToken: (token) => dispatch(setNewToken(token))
+        setNewToken: token => dispatch(setNewToken(token))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(navbar)
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

@@ -1,21 +1,17 @@
 import React, { Component } from 'react'
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { setNewToken } from '../actions/actions';
+import axios from 'axios'
+import { PropTypes } from 'prop-types'
+import { connect } from 'react-redux'
+import { setNewToken } from '../actions/actions'
 
-class login extends Component {
+class Login extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             name: '',
             email: '',
             password: '',
         }
-        this.changeEmail = this.changeEmail.bind(this)
-        this.changePassword = this.changePassword.bind(this)
-        this.onSubmit = this.onSubmit.bind(this);
     }
 
     changeEmail (e) {
@@ -24,13 +20,13 @@ class login extends Component {
         })
     }
 
-    changePassword (e) {
+    changePassword = (e) => {
         this.setState({
             password: e.target.value
         })
     }
 
-    onSubmit(e) {
+    onSubmit = (e) => {
         e.preventDefault()
 
         const newUser = {
@@ -49,45 +45,59 @@ class login extends Component {
             })
     }
 
+    goBack = () => {
+        this.props.history.push('/')
+    }
+
     render() {
         return (
             <div className="wrapper container">
-                <h4>Register</h4>
-                <form onSubmit={ this.onSubmit } className="input-field">
-                    <div className="col s12 l6">
-                        {/*<input 
-                            id="form-name" 
-                            type="text"
-                            placeholder="Name..."
-                            value={ this.state.email } 
-                            onChange={ this.changeEmail }/>
-                        <br/>*/}
-                        <input 
-                            id="form-email" 
-                            type="text"
-                            placeholder="Email..."
-                            value={ this.state.email } 
-                            onChange={ this.changeEmail }
-                            required/>
-                        <br/>
-                        <input 
-                            id="form-password" 
-                            type="text"
-                            placeholder="Password..."
-                            value={ this.state.password } 
-                            onChange={ this.changePassword }/>
-                        <br/>
-                        <button id="button" className="btn">Register</button> <tb/>
-                        <Link to={'/'} id="button" className="btn">Back</Link>    
-                    </div>
-                </form> 
+
+                <div className="register-brand">
+                    <div id="brand-msg" className="">Create a new user</div>
+                </div>
+
+                <div className="form-login">
+                    <form onSubmit={ this.onSubmit } className="input-field">
+                        <div className="">
+                            <input 
+                                id="form-email" 
+                                type="text"
+                                placeholder="Email..."
+                                value={ this.state.email } 
+                                onChange={ this.changeEmail }
+                                required/>
+                            <br/>
+                            <input 
+                                id="form-password" 
+                                type="text"
+                                placeholder="Password..."
+                                value={ this.state.password } 
+                                onChange={ this.changePassword }/>
+                            <br/>
+                            <div className="form-buttons">
+                                <input 
+                                    id="form-submit-register" 
+                                    className="btn "
+                                    type="submit"
+                                    value="Register" />
+                                <input 
+                                    id="form-submit-register" 
+                                    className="btn "
+                                    type="submit"
+                                    onClick={ this.goBack }
+                                    value="Back" />
+                            </div>
+                        </div>
+                    </form> 
+                </div>
                 
             </div>
         )
     }
 }
 
-login.propTypes = {
+Login.propTypes = {
   setNewToken: PropTypes.func,
 }
 
@@ -97,4 +107,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(login)
+export default connect(null, mapDispatchToProps)(Login)

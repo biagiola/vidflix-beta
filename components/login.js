@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
-import { setNewToken, toggleNavbar } from '../actions/actions';
+import { Link } from 'react-router-dom'
+
+import { connect } from 'react-redux'
+import { PropTypes } from 'prop-types'
+
+import axios from 'axios'
+
+import { setNewToken, toggleNavbar } from '../actions/actions'
 
 class login extends Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
             email: '',
             password: '',
@@ -46,7 +49,7 @@ class login extends Component {
                 this.props.toggleNavbar()
             )
             .catch( error => {
-                console.log(error + " :'(");
+                console.log(error + " :'(")
             })
         
     }
