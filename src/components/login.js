@@ -87,7 +87,7 @@ class login extends Component {
 
                 <div className="register-brand">
                     <div id="brand-msg">Sign Up and See What is Next!</div>
-                    <div className="btn btn-register">
+                    <div className="btnn btn-register">
                         <Link to={'/register'} >Register</Link>            
                     </div>
                 </div>
