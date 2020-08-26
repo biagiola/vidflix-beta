@@ -14,7 +14,7 @@ class Login extends Component {
         }
     }
 
-    changeEmail (e) {
+    changeEmail = (e) => {
         this.setState({
             email: e.target.value
         })
@@ -81,12 +81,18 @@ class Login extends Component {
                                     className="btn "
                                     type="submit"
                                     value="Register" />
-                                <input 
+                                    
+                                {/*
+
+                                    If the credentials already exists, return 409
+                                    add a front message to the user
+                                    
+                                    <input 
                                     id="form-submit-register" 
                                     className="btn "
                                     type="submit"
                                     onClick={ this.goBack }
-                                    value="Back" />
+                                    value="Back" />*/}
                             </div>
                         </div>
                     </form> 
@@ -103,7 +109,7 @@ Login.propTypes = {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setNewToken: (token) => dispatch(setNewToken(token))
+    setNewToken: token => dispatch(setNewToken(token))
   }
 }
 
