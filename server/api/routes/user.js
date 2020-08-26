@@ -64,7 +64,7 @@ router.post("/signup", (req, res, next) => {
 });
 
 router.post("/login", (req, res, next) => {
-  User.find({ email: req.body.email })
+ User.find({ email: req.body.email })
     .exec()
     .then(user => {
       if (user.length < 1) {
@@ -104,7 +104,7 @@ router.post("/login", (req, res, next) => {
       res.status(500).json({
         error: err
       });
-    });
+    }); 
 });
 
 router.delete("/:userId", (req, res, next) => {

@@ -9,7 +9,8 @@ const storage = multer.diskStorage({
     cb(null, './uploads/');
   },
   filename: function(req, file, cb) {
-    cb(null, Date.now() + file.originalname)
+    console.log('store multer, file ', file)
+    cb(null, file.originalname)
   }
 });
 
@@ -32,7 +33,7 @@ const upload = multer({
 
 const Product = require("../models/product");
 
-router.get("/", (req, res, next) => {
+router.get("/", checkAuth, (req, res, next) => {
   Product.find()
     .select("name price _id productImage")
     .exec()
@@ -68,13 +69,14 @@ router.get("/", (req, res, next) => {
     });
 });
 
-router.post("/", checkAuth, upload.single('productImage'), (req, res, next) => {
+router.post("/", /*checkAuth,*/ upload.single('productImage'),   (req, res, next) => {
   const product = new Product({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     price: req.body.price,
     productImage: req.file.path // req.file is from multer
   });
+
   product
     .save()
     .then(result => {
@@ -127,7 +129,7 @@ router.get("/:productId", (req, res, next) => {
     });
 });
 
-router.patch("/:productId", checkAuth, (req, res, next) => {
+router.patch("/:productId", /*checkAuth,*/ (req, res, next) => {
   const id = req.params.productId;
   const updateOps = {};
   for (const ops of req.body) {
@@ -152,8 +154,9 @@ router.patch("/:productId", checkAuth, (req, res, next) => {
     });
 });
 
-router.delete("/:productId", checkAuth, (req, res, next) => {
+router.delete("/:productId", /*checkAuth,*/ (req, res, next) => {
   const id = req.params.productId;
+  console.log(id);
   Product.remove({ _id: id })
     .exec()
     .then(result => {
