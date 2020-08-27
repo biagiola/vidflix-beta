@@ -28,15 +28,19 @@ code {
 
 .sidebar a {
   padding: 8px 8px 8px 32px;
+  position: relative;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 25px;
+  line-height: 45px;
   color: #818181;
   display: block;
   transition: 0.4s;
+  transition-property: color;
 }
 
 .sidebar a:hover {
   color: #bd0009;
+  border-left: 2px solid red;
 }
 
 .sidebar .closebtn {

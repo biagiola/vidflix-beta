@@ -8,8 +8,9 @@ import Navbar from './components/navbar'
 import Login from './components/login'
 import Register from './components/register'
 import Products from './components/products'
-import AddProduct from './components/addProduct'
+import Account from './components/account'
 import Orders from './components/orders';
+import AddProduct from './components/addProduct'
 import Users from './components/users'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/" component={ Login } />
             <Route path="/register" component={ Register } />
             <Route path="/products" component={ Products } />
+            <Route path="/account" component={ Account } />
             <Route path="/orders" component={ Orders } />
             <Route path="/add" component={ AddProduct } />
             <Route path="/users" component={ Users } />

@@ -49,9 +49,13 @@ li {
 .nav-wrapper {
   background-color: #E50914;
   font-size: 0.8em;
+  height: 60px;
+  padding-top: 5px;
 }
 .nav-wrapper > ul > li > a {
   transition: 0.3s all;
+  font-size: 18px;
+  
 }
 .nav-wrapper > ul > li > a:hover {
   color: #141414;
@@ -120,7 +124,7 @@ input#form-submit-register {
 }
 
 /* Buttons */
-.btnn {
+.btn {
   color: #fff;
   background-color: #bd0009;
   box-shadow: 10px 10px 15px -9px rgba(0,0,0,0.75);
