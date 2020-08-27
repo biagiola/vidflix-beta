@@ -76,8 +76,9 @@ class Sidebar extends Component {
             <nav className={ scope }>
                 <div 
                     className="closebtn" 
-                    onClick={ this.toggleSidebar }>&times;
-                </div>
+                    onClick={ this.toggleSidebar }>
+                &times;</div>
+                
                 <div className="text">VidFlix</div>
                 <ul>
                     <li className="active"><a href="#">Dashboard</a></li>
