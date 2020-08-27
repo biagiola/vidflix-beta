@@ -16,3 +16,27 @@ export const toggleSidebar = () => dispatch => {
     type: 'TOGGLE_SIDEBAR',
   })
 }
+
+export const toggleFeatureSubMenu = () => dispatch => {
+  dispatch({
+    type: 'TOGGLE_FEATURE_SUB_MENU',
+  })
+}
+
+export const toggleServicesSubMenu = () => dispatch => {
+  dispatch({
+    type: 'TOGGLE_SERVICES_SUB_MENU',
+  })
+}
+
+export const animateDownArrowFeature = () => dispatch => {
+  dispatch({
+    type: 'ANIMATE_DOWN_ARROW_FEATURE'
+  })
+}
+
+export const animateDownArrowServices = () => dispatch => {
+  dispatch({
+    type: 'ANIMATE_DOWN_ARROW_SERVICES'
+  })
+}
