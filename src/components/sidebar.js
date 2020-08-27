@@ -34,6 +34,7 @@ class Sidebar extends Component {
         this.props.toggleServicesSubMenu()
         this.props.animateDownArrowServices()
     }
+
     render() {
         let scope;
         //console.log('this.props.toggleSidebarValue',this.props.toggleSidebarValue)
@@ -64,13 +65,20 @@ class Sidebar extends Component {
             arrowFeature = "fas fa-caret-down first"
         }
 
+        let arrowServices;
+        if (this.props.downArrowServicesRotate) {
+            arrowServices = "fas fa-caret-down second rotate"
+        } else {
+            arrowServices = "fas fa-caret-down second"
+        }
+
         return (
             <nav className={ scope }>
                 <div 
                     className="closebtn" 
                     onClick={ this.toggleSidebar }>&times;
                 </div>
-                <div className="text">Menu</div>
+                <div className="text">VidFlix</div>
                 <ul>
                     <li className="active"><a href="#">Dashboard</a></li>
                     <li>
@@ -84,7 +92,7 @@ class Sidebar extends Component {
                     </li>
                     <li>
                         <a href="#" className="serv-btn" onClick={ this.toggleServicesSubMenu }>Services
-                            <span className="fas fa-caret-down second"></span>
+                            <span className={ arrowServices }></span>
                         </a>
                         <ul className={ showServices }>
                             <li><a href="#">App Design</a></li>
@@ -106,6 +114,8 @@ Sidebar.propTypes = {
   toggleSidebar: PropTypes.func,
   animateDownArrowFeature: PropTypes.func,
   animateDownArrowServices: PropTypes.func,
+  downArrowFeatureRotate: PropTypes.bool,
+  downArrowServicesRotate:PropTypes.bool
 }
 
 const mapStateToPros = state => ({

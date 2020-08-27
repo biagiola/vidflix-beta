@@ -35,7 +35,7 @@ class Navbar extends Component {
     render() {
         console.log('navbar authToken ', this.props.authToken)
         const navbar = this.props.authToken === null ?
-            <nav>
+            <div>
                 <div className="nav-wrapper">
                     <ul id="burger">
                         <li  onClick={ this.handleSidebar }>
@@ -53,7 +53,7 @@ class Navbar extends Component {
                         <li><Link to={'/'}onClick={ this.handleNavbar }>Logout</Link></li>
                     </ul>
                 </div>
-            </nav>
+            </div>
             : 
                 ''
 
