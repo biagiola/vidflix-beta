@@ -23,7 +23,7 @@ class Sidebar extends Component {
         let scope;
         //console.log('this.props.toggleSidebarValue',this.props.toggleSidebarValue)
         if (this.props.toggleSidebarValue) {
-            scope = "120px"
+            scope = "160px"
         } else {
             scope = "0px"
         }
@@ -39,7 +39,7 @@ class Sidebar extends Component {
                     onClick={ this.toggleSidebar }>&times;</h6>
 
                 <Link to={'/account'}>Account</Link>
-                <Link to={'/products'}>Products</Link>
+                <Link to={'/products'}>Browse</Link>
                 <Link to={'/orders'}>Orders</Link>
                 <Link to={'/'}>Contact</Link>
                 

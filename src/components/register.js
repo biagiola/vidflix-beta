@@ -80,19 +80,16 @@ class Login extends Component {
                                     id="form-submit-register" 
                                     className="btn "
                                     type="submit"
-                                    value="Register" />
+                                    value="Register" 
+                                />
                                     
-                                {/*
-
-                                    If the credentials already exists, return 409
-                                    add a front message to the user
-                                    
-                                    <input 
+                                <input 
                                     id="form-submit-register" 
                                     className="btn "
                                     type="submit"
                                     onClick={ this.goBack }
-                                    value="Back" />*/}
+                                    value="Back" 
+                                />
                             </div>
                         </div>
                     </form> 
