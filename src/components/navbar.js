@@ -34,7 +34,7 @@ class Navbar extends Component {
     
     render() {
         console.log('navbar authToken ', this.props.authToken)
-        const navbar = this.props.authToken === null ?
+        const navbar = this.props.authToken !== null ?
             <div>
                 <div className="nav-wrapper">
                     <ul id="burger">
